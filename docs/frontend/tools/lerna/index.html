@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Hugo 0.92.0" />
+<link rel="apple-touch-icon" sizes="180x180" href='https://misakaJimmy.github.io/favicons/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='https://misakaJimmy.github.io/favicons/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='https://misakaJimmy.github.io/favicons/favicon-16x16.png'>
+<link rel="manifest" href='https://misakaJimmy.github.io/favicons/site.webmanifest'>
+<link rel="mask-icon" href='https://misakaJimmy.github.io/favicons/safari-pinned-tab.svg'  color="#004750">
+<link rel="shortcut icon" href='https://misakaJimmy.github.io/favicons/favicon.ico'>
+<meta name="msapplication-config" content='https://misakaJimmy.github.io/favicons/browserconfig.xml'>
+<title>Lerna | MisakaJimmy Blog</title><meta property="og:title" content="Lerna" />
+<meta property="og:description" content="项目链接：github.com/lerna/lernaLerna 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。
+关于 将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。
+为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 Babel, React, Angular, Ember, Meteor, Jest, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。
+Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 hoist documentation。
+Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下所示：
+1my-lerna-repo/ 2 package.json 3 packages/ 4 package-1/ 5 package.json 6 package-2/ 7 package.json Lerna 能做什么？ Lerna 中的两个主要命令是 lerna bootstrap 和 lerna publish。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://misakaJimmy.github.io/docs/frontend/tools/lerna/" /><meta property="article:section" content="docs" />
+
+
+
+<meta itemprop="name" content="Lerna">
+<meta itemprop="description" content="项目链接：github.com/lerna/lernaLerna 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。
+关于 将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。
+为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 Babel, React, Angular, Ember, Meteor, Jest, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。
+Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 hoist documentation。
+Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下所示：
+1my-lerna-repo/ 2 package.json 3 packages/ 4 package-1/ 5 package.json 6 package-2/ 7 package.json Lerna 能做什么？ Lerna 中的两个主要命令是 lerna bootstrap 和 lerna publish。">
+
+<meta itemprop="wordCount" content="451">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lerna"/>
+<meta name="twitter:description" content="项目链接：github.com/lerna/lernaLerna 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。
+关于 将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。
+为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 Babel, React, Angular, Ember, Meteor, Jest, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。
+Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 hoist documentation。
+Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下所示：
+1my-lerna-repo/ 2 package.json 3 packages/ 4 package-1/ 5 package.json 6 package-2/ 7 package.json Lerna 能做什么？ Lerna 中的两个主要命令是 lerna bootstrap 和 lerna publish。"/>
+
+
+<link rel="stylesheet" href="https://misakaJimmy.github.io/css/styles.aaeedd0763acd2fb550df0b60f9fb79d05f5fe55f1f1ae345b69837ea4f7ef564ec90e2d13ac0418bcc984c0333b1871994e87d59b68910a41b50d71da40382c.css" integrity="sha512-qu7dB2Os0vtVDfC2D5&#43;3nQX1/lXx8a40W2mDfqT371ZOyQ4tE6wEGLzJhMAzOxhxmU6H1ZtokQpBtQ1x2kA4LA==">
+
+
+
+
+  <meta name="description" content="项目链接：github.com/lerna/lernaLerna 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。
+关于 将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。
+为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 Babel, React, Angular, Ember, Meteor, Jest, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。
+Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 hoist documentation。
+Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下所示：
+1my-lerna-repo/ 2 package.json 3 packages/ 4 package-1/ 5 package.json 6 package-2/ 7 package.json Lerna 能做什么？ Lerna 中的两个主要命令是 lerna bootstrap 和 lerna publish。">
+
+
+</head>
+<body class="page-page" id="pagetop">
+  <header class="nav_header">
+<nav class="wrap nav menu">
+	<a href="https://misakaJimmy.github.io/" class="nav_brand">
+		<picture data-lit="https://misakaJimmy.github.io/images/logo-dark.svg" data-dark="https://misakaJimmy.github.io/images/logo-light.svg">
+			
+			<source srcset = 'https://misakaJimmy.github.io/images/logo-light.svg' media="(prefers-color-scheme: dark)">
+			
+			<img srcset = 'https://misakaJimmy.github.io/images/logo-dark.svg' alt = 'MisakaJimmy Blog Logo'>
+		</picture>
+		<label class="nav_toggle toggle" title='Site Menu' role="button">
+			<svg class="icon icon_harmburger">
+  <use xlink:href="#harmburger"></use>
+</svg>
+		</label>
+	</a>
+	<ul class="nav_body">
+		<li class="nav-item">
+<div class="search">
+  <label for="find" class="search_label"><svg class="icon icon_search">
+  <use xlink:href="#search"></use>
+</svg>
+  </label>
+  <input type="search" class="search_field" placeholder='Search the docs' id="find" autocomplete="off">
+  <div class="search_results results"></div>
+</div>
+
+
+
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="https://misakaJimmy.github.io/docs/"><span>Docs</span></a>
+		</li>
+		
+		<li class="nav-item nav_repo">
+			<a class="nav-link" href="https://github.com/misakajimmy/" target="_blank">
+				
+					<picture data-lit="https://misakaJimmy.github.io/images/GitHubMarkLight.svg" data-dark="https://misakaJimmy.github.io/images/GitHubMarkDark.svg">
+						
+							<source srcset = 'https://misakaJimmy.github.io/images/GitHubMarkDark.svg' media="(prefers-color-scheme: dark)">
+						
+						<img srcset = 'https://misakaJimmy.github.io/images/GitHubMarkLight.svg' alt = 'GitHub Repo'>
+					</picture>
+				
+			</a>
+		</li>
+		<li class="nav-item"><div class = 'color_mode'>
+  <label for = 'mode'></label>
+  <input type = 'checkbox' class = 'color_choice' id = 'mode' title="Toggle Dark Mode">
+</div>
+</li>
+	</ul>
+</nav>
+
+  </header>
+  <div class="main wrap pt-4"><div class="grid-auto"><aside class="aside menu">
+  <div>
+    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_harmburger">
+  <use xlink:href="#harmburger"></use>
+</svg></label>
+  </div>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/" class="group">Lifelong Learning</a></h2>
+      <section class="" id="docs-lifelong-learning">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/frontend/" class="group">Frontend</a></h2>
+      <section class="" id="docs-frontend">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/frontend/tools/" class="group">前端常用工具链</a></h2>
+      <section class="" id="docs-前端常用工具链">
+        <h3 class="section_link"><a id="docs-yarn" href="https://misakaJimmy.github.io/docs/frontend/tools/yarn/">Yarn</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装yarn">安装yarn</a>
+      <ul>
+        <li><a href="#下载-nodejs-通过-npm-安装">下载 <code>nodejs</code> 通过 <code>npm</code> 安装</a></li>
+        <li><a href="#查看版本">查看版本</a></li>
+        <li><a href="#设置淘宝源">设置淘宝源</a></li>
+      </ul>
+    </li>
+    <li><a href="#yarn-与-npm-命令对比"><code>yarn</code> 与 <code>npm</code> 命令对比</a></li>
+    <li><a href="#npm---save-和-npm---save-dev-区别"><code>npm --save</code> 和 <code>npm --save-dev</code> 区别</a></li>
+    <li><a href="#yarn对比npm的优点">yarn对比npm的优点</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link active"><a id="docs-lerna" href="https://misakaJimmy.github.io/docs/frontend/tools/lerna/">Lerna</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于">关于</a>
+      <ul>
+        <li><a href="#lerna-repo-是什么样的">Lerna repo 是什么样的？</a></li>
+        <li><a href="#lerna-能做什么">Lerna 能做什么？</a></li>
+        <li><a href="#lerna-不能做什么">Lerna 不能做什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#入门">入门</a></li>
+    <li><a href="#如何使用lerna">如何使用Lerna</a>
+      <ul>
+        <li><a href="#fixedlocked-模式-default">Fixed/Locked 模式 (default)</a></li>
+        <li><a href="#independent-模式">Independent 模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#基本概念">基本概念</a>
+      <ul>
+        <li><a href="#lernajson">lerna.json</a>
+          <ul>
+            <li><a href="#废弃字段">废弃字段</a></li>
+          </ul>
+        </li>
+        <li><a href="#常见的devdependencies">常见的<code>devDependencies</code></a></li>
+        <li><a href="#git-托管的依赖项">Git 托管的依赖项</a></li>
+      </ul>
+    </li>
+    <li><a href="#自述文件徽章">自述文件徽章</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/frontend/basic/" class="group">前端基础</a></h2>
+      <section class="" id="docs-前端基础">
+        <h3 class="section_link"><a id="docs-symbol" href="https://misakaJimmy.github.io/docs/frontend/basic/symbol/">Symbol</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#参数">参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#描述">描述</a>
+      <ul>
+        <li><a href="#全局共享的-symbol">全局共享的 Symbol</a></li>
+        <li><a href="#在对象中查找-symbol-属性">在对象中查找 Symbol 属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#属性">属性</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/" class="group">InversifyJS</a></h2>
+      <section class="" id="docs-inversifyjs">
+        <h3 class="section_link"><a id="docs-项目中引入-inversifyjs" href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/">项目中引入 InversifyJS</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#环境支持和-polyfills">环境支持和 polyfills</a>
+      <ul>
+        <li><a href="#metadata-reflection-api">Metadata Reflection API</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#promise">Promise</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-inversifyjs-基础演示ts" href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/">InversifyJS 基础演示(TS)</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#代码解析">代码解析</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-对类的支持" href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/">对类的支持</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#具体类型绑定自身">具体类型绑定自身</a></li>
+    <li><a href="#已知局限性-类作为标识符和循环依赖">已知局限性: 类作为标识符和循环依赖</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/database/" class="group">DataBase</a></h2>
+      <section class="" id="docs-database">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/database/postgresql/" class="group">PostgreSQL</a></h2>
+      <section class="" id="docs-postgresql">
+        <h3 class="section_link"><a id="docs-postgresql-docker-启动" href="https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/">PostgreSQL Docker 启动</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker-compose">docker-compose</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-windows-postgresql-使用" href="https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/">Windows PostgreSQL 使用</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#添加-bin-到环境变量之中">添加 bin 到环境变量之中</a></li>
+    <li><a href="#角色-postgres-不存在">角色 &quot;postgres&quot; 不存在</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+      </section>
+  </section>
+        <h3 class="section_link"><a id="docs-" href="https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/"></a></h3><nav id="TableOfContents"></nav>
+      </section>
+  </section>
+</aside>
+
+  <main class="content">
+    <h1>Lerna</h1>
+<div class="tip">
+  项目链接：<a href="https://github.com/lerna/lerna">github.com/lerna/lerna</a>
+</div>
+
+<p><a href="https://github.com/lerna/lerna">Lerna</a> 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。</p>
+<h2 id="关于">关于</h2>
+<p>将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。</p>
+<p>为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 <a href="https://github.com/babel/babel/tree/master/packages">Babel</a>, <a href="https://github.com/facebook/react/tree/master/packages">React</a>, <a href="https://github.com/angular/angular/tree/master/modules">Angular</a>,
+<a href="https://github.com/emberjs/ember.js/tree/master/packages">Ember</a>, <a href="https://github.com/meteor/meteor/tree/devel/packages">Meteor</a>, <a href="https://github.com/facebook/jest/tree/master/packages">Jest</a>, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。</p>
+<p><strong>Lerna is a tool that optimizes the workflow around managing multi-package
+repositories with git and npm.</strong></p>
+<p>Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 <a href="doc/hoist.md">hoist documentation</a>。</p>
+<h3 id="lerna-repo-是什么样的">Lerna repo 是什么样的？</h3>
+<p>它实际上很简单。您的文件结构如下所示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>my-lerna-repo/
+<span class="ln">2</span>  package.json
+<span class="ln">3</span>  packages/
+<span class="ln">4</span>    package-1/
+<span class="ln">5</span>      package.json
+<span class="ln">6</span>    package-2/
+<span class="ln">7</span>      package.json
+</code></pre></div><h3 id="lerna-能做什么">Lerna 能做什么？</h3>
+<p>Lerna 中的两个主要命令是 <code>lerna bootstrap</code> 和 <code>lerna publish</code>。</p>
+<p><code>bootstrap</code> 将 repo 中的依赖项链接在一起。 <code>publish</code> 将帮助发布任何更新的包。</p>
+<h3 id="lerna-不能做什么">Lerna 不能做什么？</h3>
+<p>Lerna 不是 serverless monorepos 的部署工具。Hoisting 可能与传统的无服务器 monorepo 部署技术不兼容。</p>
+<h2 id="入门">入门</h2>
+
+<div class="tip">
+  <p>本着用新不用旧的原则，本文像官方文档学习，使用 Lerna 3.0。</p>
+<p>比起npm作者偏爱用yarn，如果不喜欢yarn的可以参考 <a href="../yarn/#yarn-%E4%B8%8E-npm-%E5%91%BD%E4%BB%A4%E5%AF%B9%E6%AF%94"><code>yarn</code> 与 <code>npm</code> 命令对比</a></p>
+
+</div>
+
+<p>推荐全局安装 Lerna</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="ln">1</span>yarn add -g lerna
+</code></pre></div><p>接下来，我们将创建一个新的 git 代码仓库：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="ln">1</span>git init lerna-repo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> lerna-repo
+</code></pre></div><p>现在，我们将上述仓库转变为一个 Lerna 仓库：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="ln">1</span>lerna init
+</code></pre></div><p>这将创建一个<code>lerna.json</code>配置文件和一个<code>packages</code>文件夹，因此您的文件夹现在应如下所示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>lerna-repo/
+<span class="ln">2</span>  packages/
+<span class="ln">3</span>  package.json
+<span class="ln">4</span>  lerna.json
+</code></pre></div><h2 id="如何使用lerna">如何使用Lerna</h2>
+<p>Lerna 允许您使用以下两种模式之一来管理您的项目：<code>Fixed</code> 或 <code>Independent</code>。</p>
+<h3 id="fixedlocked-模式-default">Fixed/Locked 模式 (default)</h3>
+<p><code>Fixed</code>模式 Lerna 项目在单个版本行上运行。版本保存在<code>lerna.json</code>项目根目录下的文件中<code>version</code>。当你运行时<code>lerna publish</code>，如果一个模块自上次发布以来已经更新，它将更新到你发布的新版本。这意味着您只在需要时发布新版本的包。</p>
+
+<div class="tip">
+  注意：如果您的主要版本为零，则所有更新都被认为是<a href="https://semver.org/#spec-item-4">破坏性</a>的。因此，<code>lerna publish</code>使用主要版本零运行并选择任何非预发布版本号将导致为所有包发布新版本，即使自上次发布以来并非所有包都已更改。
+</div>
+
+<p>这是Babel当前使用的模式。如果您想自动将所有包版本绑定在一起，请使用此选项。这种方法的一个问题是，任何包的重大变化都会导致所有包都有一个新的主要版本。</p>
+<h3 id="independent-模式">Independent 模式</h3>
+<p><code>lerna init --independent</code></p>
+<p>独立模式 Lerna 项目允许维护人员彼此独立地增加包版本。每次发布时，您都会收到有关已更改的每个包的提示，以指定它是补丁、次要、主要还是自定义更改。</p>
+<p>独立模式允许您更具体地更新每个包的版本，并且对一组组件有意义。将此模式与语义释放之类的东西结合起来会减轻痛苦。（<a href="https://github.com/atlassian/lerna-semantic-release">atlassian/lerna-semantic-release</a>已经有这方面的工作）。</p>
+
+<div class="tip">
+  将<code>lerna.json</code>中的<code>version</code>设置为<code>independent</code>以运行Independent模式。
+</div>
+
+<h2 id="基本概念">基本概念</h2>
+<p>Lerna在运行命令时遇到错误会记录到一个<code>lerna-debug.log</code>文件（与 <code>npm-debug.log</code> 相同）。</p>
+<p>Lerna 还支持<a href="https://docs.npmjs.com/misc/scope">scoped packages</a>。</p>
+<h3 id="lernajson">lerna.json</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="ln"> 1</span><span class="p">{</span>
+<span class="ln"> 2</span>  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.1.3&#34;</span><span class="p">,</span>
+<span class="ln"> 3</span>  <span class="nt">&#34;npmClient&#34;</span><span class="p">:</span> <span class="s2">&#34;yarn&#34;</span><span class="p">,</span>
+<span class="ln"> 4</span>  <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln"> 5</span>    <span class="nt">&#34;publish&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln"> 6</span>      <span class="nt">&#34;ignoreChanges&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;ignored-file&#34;</span><span class="p">,</span> <span class="s2">&#34;*.md&#34;</span><span class="p">],</span>
+<span class="ln"> 7</span>      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;chore(release): publish&#34;</span><span class="p">,</span>
+<span class="ln"> 8</span>      <span class="nt">&#34;registry&#34;</span><span class="p">:</span> <span class="s2">&#34;https://npm.pkg.github.com&#34;</span>
+<span class="ln"> 9</span>    <span class="p">},</span>
+<span class="ln">10</span>    <span class="nt">&#34;bootstrap&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln">11</span>      <span class="nt">&#34;ignore&#34;</span><span class="p">:</span> <span class="s2">&#34;component-*&#34;</span><span class="p">,</span>
+<span class="ln">12</span>      <span class="nt">&#34;npmClientArgs&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;--no-package-lock&#34;</span><span class="p">]</span>
+<span class="ln">13</span>    <span class="p">}</span>
+<span class="ln">14</span>  <span class="p">},</span>
+<span class="ln">15</span>  <span class="nt">&#34;packages&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;packages/*&#34;</span><span class="p">]</span>
+<span class="ln">16</span><span class="p">}</span>
+</code></pre></div><ul>
+<li><code>version</code>: 存储库的当前版本</li>
+<li><code>npmClient</code>: 用于指定特定客户端以运行命令的选项（也可以在每个命令的基础上指定）。更改为<code>&quot;yarn&quot;</code>使用 yarn 运行所有命令。默认为<code>“npm”</code></li>
+<li><code>command.publish.ignoreChanges</code>: 不包含在lerna changed/publish. 使用它来防止不必要地发布新版本以进行更改，例如修复<code>README.md</code>错字</li>
+<li><code>command.publish.message</code>: 执行版本更新以进行发布时的自定义提交消息。有关更多详细信息，请参阅<a href="commands/version#--message-msg">@lerna/version</a></li>
+<li><code>command.publish.registry</code>: 使用它来设置要发布到的自定义注册表 url 而不是 npmjs.org，如果需要，您必须已经过身份验证</li>
+<li><code>command.bootstrap.ignore</code>: <code>lerna bootstrap</code> 运行命令时不会引导的 glob 数组</li>
+<li><code>command.bootstrap.npmClientArgs</code>: 在 <code>lerna bootstrap</code> 运行时将传递到 <code>npm install</code> 的数据</li>
+<li><code>command.bootstrap.scope</code>: 一个用于 <code>lerna bootstrap</code> 运行时，限制在运行命令时将引导哪些包的一个 glob 数组</li>
+<li><code>packages</code>: 用作包位置的 glob 数组</li>
+</ul>
+<p>配置文件<code>lerna.json</code>中的<code>packages</code>字段一个 glob 数组用来匹配拥有<code>package.json</code>的文件夹，这是 lerna 识别&quot;子&quot;包的方式（相对于项目&quot;根&quot;目录 <code>package.json</code>，它旨在管理整个 repo 的开发依赖项和脚本）。</p>
+<p>默认情况下，lerna 将包列表初始化为<code>[&quot;packages/*&quot;]</code>，但您也可以使用其他目录，例如<code>[&quot;modules/*&quot;]</code>, 或<code>[&quot;package1&quot;, &quot;package2&quot;]</code>. 定义的 glob 与所在的目录相关，<code>lerna.json</code>通常是存储库根目录。唯一的限制是您不能直接嵌套包位置，但这也是“普通”npm 包共享的限制。</p>
+<p>例如，<code>[&quot;packages/*&quot;, &quot;src/**&quot;]</code>匹配这棵树：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>packages/
+<span class="ln"> 2</span>├── foo-pkg
+<span class="ln"> 3</span>│   └── package.json
+<span class="ln"> 4</span>├── bar-pkg
+<span class="ln"> 5</span>│   └── package.json
+<span class="ln"> 6</span>├── baz-pkg
+<span class="ln"> 7</span>│   └── package.json
+<span class="ln"> 8</span>└── qux-pkg
+<span class="ln"> 9</span>    └── package.json
+<span class="ln">10</span>src/
+<span class="ln">11</span>├── admin
+<span class="ln">12</span>│   ├── my-app
+<span class="ln">13</span>│   │   └── package.json
+<span class="ln">14</span>│   ├── stuff
+<span class="ln">15</span>│   │   └── package.json
+<span class="ln">16</span>│   └── things
+<span class="ln">17</span>│       └── package.json
+<span class="ln">18</span>├── profile
+<span class="ln">19</span>│   └── more-things
+<span class="ln">20</span>│       └── package.json
+<span class="ln">21</span>├── property
+<span class="ln">22</span>│   ├── more-stuff
+<span class="ln">23</span>│   │   └── package.json
+<span class="ln">24</span>│   └── other-things
+<span class="ln">25</span>│       └── package.json
+<span class="ln">26</span>└── upload
+<span class="ln">27</span>    └── other-stuff
+<span class="ln">28</span>        └── package.json
+</code></pre></div><p>在下面定位叶子包<code>packages/*</code>被认为是“最佳实践”，但不是使用 Lerna 的要求。</p>
+<h4 id="废弃字段">废弃字段</h4>
+<p>有些<code>lerna.json</code>字段不再使用。值得注意的包括：</p>
+<ul>
+<li><code>lerna</code>: 最初用于表示 Lerna 的当前版本。在 v3 中 <a href="https://github.com/lerna/lerna/pull/1122">过时</a> 并且 <a href="https://github.com/lerna/lerna/pull/1225">删除</a></li>
+</ul>
+<h3 id="常见的devdependencies">常见的<code>devDependencies</code></h3>
+<p>大多数<code>devDependencies</code>可以拉到 Lerna repo 的根目录<code>lerna link convert</code></p>
+<p>上述命令将自动 hoist things 并使用相关 <code>file:</code> 说明符。</p>
+<p>Hoisting 有几个好处：</p>
+<ul>
+<li>所有包都使用相同版本的给定依赖项</li>
+<li>可以使用Snyk等自动化工具使根目录中的依赖项保持最新</li>
+<li>减少依赖安装时间</li>
+<li>需要更少的存储空间</li>
+</ul>
+<p>请注意，<code>devDependencies</code>提供 npm 脚本使用的“二进制”可执行文件仍然需要直接安装在使用它们的每个包中。</p>
+<p>例如，在这种情况下，为了 <code>lerna run nsp</code>（以及在包的目录中 <code>npm run nsp</code>）正常工作，<code>nsp</code>依赖项是必需的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="ln">1</span><span class="p">{</span>
+<span class="ln">2</span>  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln">3</span>    <span class="nt">&#34;nsp&#34;</span><span class="p">:</span> <span class="s2">&#34;nsp&#34;</span>
+<span class="ln">4</span>  <span class="p">},</span>
+<span class="ln">5</span>  <span class="nt">&#34;devDependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln">6</span>    <span class="nt">&#34;nsp&#34;</span><span class="p">:</span> <span class="s2">&#34;^2.3.3&#34;</span>
+<span class="ln">7</span>  <span class="p">}</span>
+<span class="ln">8</span><span class="p">}</span>
+</code></pre></div><h3 id="git-托管的依赖项">Git 托管的依赖项</h3>
+<p>Lerna 允许将本地依赖包的目标版本编写为带有（例如<code>#committish#v1.0.0</code>或<code>#semver:^1.0.0</code> ）的git 远程 url ，而不是正常的数字版本范围。当包必须是私有的并且不需要私有 npm 注册表时，这允许通过 git 存储库分发包。</p>
+<p>请注意，lerna 不会将git 历史记录实际拆分为单独的只读存储库。这是用户的责任。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>// packages/pkg-1/package.json
+<span class="ln"> 2</span>{
+<span class="ln"> 3</span>  name: &#34;pkg-1&#34;,
+<span class="ln"> 4</span>  version: &#34;1.0.0&#34;,
+<span class="ln"> 5</span>  dependencies: {
+<span class="ln"> 6</span>    &#34;pkg-2&#34;: &#34;github:example-user/pkg-2#v1.0.0&#34;
+<span class="ln"> 7</span>  }
+<span class="ln"> 8</span>}
+<span class="ln"> 9</span>
+<span class="ln">10</span>// packages/pkg-2/package.json
+<span class="ln">11</span>{
+<span class="ln">12</span>  name: &#34;pkg-2&#34;,
+<span class="ln">13</span>  version: &#34;1.0.0&#34;
+<span class="ln">14</span>}
+</code></pre></div><p>在上面的例子中，</p>
+<ul>
+<li><code>lerna bootstrap</code>将正确符号链接<code>pkg-2</code>到<code>pkg-1</code>.</li>
+<li><code>lerna publish</code>将在<code>pkg-2</code>更改时更新<code>pkg-1</code> committish (<code>#v1.0.0</code>)</li>
+</ul>
+<h2 id="自述文件徽章">自述文件徽章</h2>
+<p>正在使用Lerna？添加一个 README 徽章来展示它：<a href="https://lerna.js.org/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="lerna"></a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+</code></pre></div>
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="https://misakaJimmy.github.io/docs/frontend/tools/yarn/" class="pager_link button" title="Yarn" rel="prev">
+        <span class="pager_label">Yarn</span>
+      </a>
+    </div>
+    
+  
+
+  
+    
+    <div class="pager_item next">
+      <a href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/" class="pager_link button" title="对类的支持" rel="next">
+        <span class="pager_label">对类的支持</span>
+      </a>
+    </div>
+    
+  
+</div>
+  </main>
+</div>
+</div>
+<footer class="pt-2 pb-2">
+  <div class="wrap">
+    <p>&copy; <span class="year">2022</span> <a href ="https://github.com/misakajimmy/" target="_blank" rel="noopener">MisakaJimmy</a></p>
+    <a href="#pagetop" id="toTop" title=Back&#32;to&#32;top></a>
+  </div>
+</footer>
+
+
+<svg width="0" height="0" class="hidden">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492.004 492.004" id="next">
+    <path d="M484.14 226.886L306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" id="search">
+    <path d="M508.874 478.708L360.142 329.976c28.21-34.827 45.191-79.103 45.191-127.309C405.333 90.917 314.416 0 202.666 0S0 90.917 0 202.667s90.917 202.667 202.667 202.667c48.206 0 92.482-16.982 127.309-45.191l148.732 148.732c4.167 4.165 10.919 4.165 15.086 0l15.081-15.082c4.165-4.166 4.165-10.92-.001-15.085zM202.667 362.667c-88.229 0-160-71.771-160-160s71.771-160 160-160 160 71.771 160 160-71.771 160-160 160z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241 179" id="harmburger">
+    <path d="M1 10C1 4.477 5.477 0 11 0h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11C5.477 20 1 15.523 1 10zm0 80c0-5.523 4.477-10 10-10h220c5.523 0 10 4.477 10 10s-4.477 10-10 10H11c-5.523 0-10-4.477-10-10zm9 69c-5.523 0-10 4.477-10 10s4.477 10 10 10h220c5.523 0 10-4.477 10-10s-4.477-10-10-10H10z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401.998 401.998" id="sort">
+    <path d="M73.092 164.452h255.813c4.949 0 9.233-1.807 12.848-5.424 3.613-3.616 5.427-7.898 5.427-12.847s-1.813-9.229-5.427-12.85L213.846 5.424C210.232 1.812 205.951 0 200.999 0s-9.233 1.812-12.85 5.424L60.242 133.331c-3.617 3.617-5.424 7.901-5.424 12.85 0 4.948 1.807 9.231 5.424 12.847 3.621 3.617 7.902 5.424 12.85 5.424zm255.813 73.097H73.092c-4.952 0-9.233 1.808-12.85 5.421-3.617 3.617-5.424 7.898-5.424 12.847s1.807 9.233 5.424 12.848L188.149 396.57c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428l127.907-127.906c3.613-3.614 5.427-7.898 5.427-12.848 0-4.948-1.813-9.229-5.427-12.847-3.614-3.616-7.899-5.42-12.848-5.42z"></path>
+  </symbol>
+</svg>
+
+<svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M23 2.75A2.75 2.75 0 0 0 20.25 0H8.75A2.75 2.75 0 0 0 6 2.75v13.5A2.75 2.75 0 0 0 8.75 19h11.5A2.75 2.75 0 0 0 23 16.25zM18.25 14.5h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5z"></path>
+    <path d="M8.75 20.5a4.255 4.255 0 0 1-4.25-4.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752 0 0 0 1 5.25v16A2.752 2.752 0 0 0 3.75 24h12a2.752 2.752 0 0 0 2.75-2.75v-.75z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="youtube">
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow">
+    <path d="M21 27v-8h3v11H0V19h3v8h18z"></path><path d="M17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"></path>
+  </symbol>
+</svg>
+
+<script src="https://misakaJimmy.github.io/js/bundle.min.fe2f4cb9d8b01adfc97f5241936ea6899de3c0dbaee006d759b6b44f741c975d845ddd50d2efb276f18f9eed5c7bf0a8620fdfe96a38cd154658417b00fc251e.js"></script>
+</body>
+</html>
