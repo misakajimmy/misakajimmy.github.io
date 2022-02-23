@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端常用工具链 on MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/frontend/tools/</link>
+    <description>Recent content in 前端常用工具链 on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yarn</title>
+      <link>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</guid>
+      <description>安装yarn 下载 nodejs 通过 npm 安装 1npm install -g yarn 查看版本 1yarn --version 设置淘宝源 1yarn config set registry https://registry.npm.taobao.org 2yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass # node-sass 二进制包镜像 3yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ # electron 二进制包镜像 4yarn config set ELECTRON_MIRROR https://cdn.npm.taobao.org/dist/electron/ # electron 二进制包镜像 5yarn config set puppeteer_download_host https://npm.taobao.org/mirrors # puppeteer 二进制包镜像 6yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver # chromedriver 二进制包镜像 7yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver # operadriver 二进制包镜像 8yarn config set phantomjs_cdnurl https://npm.</description>
+    </item>
+    
+  </channel>
+</rss>

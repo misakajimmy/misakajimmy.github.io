@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PostgreSQL on MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/database/postgresql/</link>
+    <description>Recent content in PostgreSQL on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/database/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL Docker 启动</title>
+      <link>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</guid>
+      <description>1docker pull bitnami/postgresql:12 docker-compose 1version:&amp;#39;3.5&amp;#39;23services:4postgres:5container_name:postgres_container6image:postgres7environment:8POSTGRES_USER:postgres9POSTGRES_PASSWORD:password10PGDATA:/data/postgres11volumes:12- postgres:/data/postgres13ports:14- &amp;#34;5432:5432&amp;#34;15networks:16- postgres17restart:unless-stopped1819pgadmin:20container_name:pgadmin_container21image:dpage/pgadmin422environment:23PGADMIN_DEFAULT_EMAIL:misakajimmy@gmail.com24PGADMIN_DEFAULT_PASSWORD:admin25PGADMIN_CONFIG_SERVER_MODE:&amp;#39;False&amp;#39;26volumes:27- pgadmin:/root/.pgadmin2829ports:30- &amp;#34;3080:80&amp;#34;31networks:32- postgres33restart:unless-stopped3435networks:36postgres:37driver:bridge3839volumes:40postgres:41pgadmin:</description>
+    </item>
+    
+    <item>
+      <title>Windows PostgreSQL 使用</title>
+      <link>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</guid>
+      <description>直接官网下载安装，安装时记得记下安装路径。
+根目录如下图所示，bin下是 PostgreSQL 的命令行控制程序，pgAdmin4 下是 PostpreSQL 的可视化管理程序。
+添加 bin 到环境变量之中 记下到 bin 文件夹的绝对路径， 我这里是 D:\Program Files\PostgreSQL\12\bin ，添加到系统变量和用户变量的 Path 之中。
+然后打开 Terminal ，输入
+1pg_ctl.exe start -D &amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34; 然后打开 pgAdmin ， 输入 host 和 Password 。
+角色 &amp;quot;postgres&amp;quot; 不存在 Terminal 中出现角色不存在，导致无法正常连接到postgre服务。
+使用管理员权限打开 Powershell ， 输入
+1 pg_ctl.exe register -N &amp;#34;pgsql&amp;#34; -D &amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34; 将 postgresql 注册为服务</description>
+    </item>
+    
+  </channel>
+</rss>

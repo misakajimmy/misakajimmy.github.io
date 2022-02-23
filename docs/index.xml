@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lifelong Learning on MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/</link>
+    <description>Recent content in Lifelong Learning on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid>
+      <description>install docker-compose v2 官方 github
+1wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64 2sudo chmod a+x ./docker-compose-linux-amd64 3mkdir ~/.docker/cli-plugins 4sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose </description>
+    </item>
+    
+  </channel>
+</rss>

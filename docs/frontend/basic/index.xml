@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端基础 on MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/frontend/basic/</link>
+    <description>Recent content in 前端基础 on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/basic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Symbol</title>
+      <link>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</guid>
+      <description>Symbol 原文链接：developer.mozilla.orgsymbol 是一种基本数据类型 （primitive data type）。Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：&amp;quot;new Symbol()&amp;quot;。
+语法 1Symbol([description]) 参数  description 可选  可选的，字符串类型。对symbol的描述，可用于调试但不是访问symbol本身。
+描述 直接使用Symbol()创建新的symbol类型，并用一个可选的字符串作为其描述。
+1var sym1 = Symbol(); 2var sym2 = Symbol(&amp;#39;foo&amp;#39;); 3var sym3 = Symbol(&amp;#39;foo&amp;#39;); 上面的代码创建了三个新的symbol类型。 注意，Symbol(&amp;quot;foo&amp;quot;) 不会强制将字符串 “foo” 转换成symbol类型。它每次都会创建一个新的 symbol类型：
+1Symbol(&amp;#34;foo&amp;#34;) === Symbol(&amp;#34;foo&amp;#34;); // false 下面带有 new 运算符的语法将抛出 TypeError 错误：
+1var sym = new Symbol(); // TypeError 这会阻止创建一个显式的 Symbol 包装器对象而不是一个 Symbol 值。围绕原始数据类型创建一个显式包装器对象从 ECMAScript 6 开始不再被支持。 然而，现有的原始包装器对象，如 new Boolean、new String以及new Number，因为遗留原因仍可被创建。
+如果你真的想创建一个 Symbol 包装器对象 (Symbol wrapper object)，你可以使用 Object() 函数：</description>
+    </item>
+    
+  </channel>
+</rss>

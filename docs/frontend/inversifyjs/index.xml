@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>InversifyJS on MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/</link>
+    <description>Recent content in InversifyJS on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>项目中引入 InversifyJS</title>
+      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</guid>
+      <description>安装 可以通过 npm 或者 yarn 来引入 InversifyJS：
+1yarn add inversify reflect-metadata InversifyJS 类型定义包含在 inversify npm 包中。InversifyJS 需要 experimentalDecorators、 emitDecoratorMetadata 和 lib 编译选项开启在 tsconfig.json 文件中。1{ 2 &amp;#34;compilerOptions&amp;#34;: { 3 &amp;#34;experimentalDecorators&amp;#34;: true, 4 &amp;#34;emitDecoratorMetadata&amp;#34;: true 5 } 6} InversifyJS 需要一个支持下面特性的现代 JavaScript 引擎：
+ Reflect metadata Promise (仅在使用 provider injection 时需要) Proxy (仅在使用 activation handlers 时需要)  如果你的环境不支持其中的特性，那么需要引入 shim 或者 polyfill。
+环境支持和 polyfills InversifyJS 需要一个现代的 JavaScript 引擎，需要支持 Promise、 Map、 Metadata Reflection API 和 Proxy 对象。 如果你的环境不支持这些的化，就需要引入 shim 或者 polyfill。</description>
+    </item>
+    
+    <item>
+      <title>InversifyJS 基础演示(TS)</title>
+      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</guid>
+      <description>代码解析 1import * as inversify from &amp;#39;inversify&amp;#39;; 2import &amp;#39;reflect-metadata&amp;#39;; 引入 inversify 以及 reflect-metadata 两个包。
+1const TYPES = { 2 // 忍者 3 Ninja: &amp;#39;Ninja&amp;#39;, 4 // 武士刀 5 Katana: &amp;#39;Katana&amp;#39;, 6 // 手里剑 7 Shuriken: &amp;#39;Shuriken&amp;#39; 8} 定义了类对应的映射，这里定义了三个类，看过火影的应该很容易理解Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)之间的关系。
+1class Katana { 2 hit() { 3 return &amp;#39;cut!&amp;#39;; 4 } 5} 6 7class Shuriken { 8 throw() { 9 return &amp;#39;hit!&amp;#39;; 10 } 11} 12 13class Ninja { 14 private _katana: Katana; 15 private _shuriken: Shuriken; 16 17 constructor(katana: Katana, shuriken: Shuriken) { 18 this.</description>
+    </item>
+    
+    <item>
+      <title>对类的支持</title>
+      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</guid>
+      <description>对类的支持 InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 @injectable，但不需要使用装饰器 @inject。
+使用类作为服务标识时不需要 @inject 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：
+ 导入 reflect-metadata 在 tsconfig.json 文件中设置 emitDecoratorMetadata 为 true  1import { Container, injectable, inject } from &amp;#34;inversify&amp;#34;; 2 3@injectable() 4class Katana { 5 public hit() { 6 return &amp;#34;cut!&amp;#34;; 7 } 8} 9 10@injectable() 11class Shuriken { 12 public throw() { 13 return &amp;#34;hit!&amp;#34;; 14 } 15} 16 17@injectable() 18class Ninja implements Ninja { 19 20 private _katana: Katana; 21 private _shuriken: Shuriken; 22 23 public constructor(katana: Katana, shuriken: Shuriken) { 24 this.</description>
+    </item>
+    
+  </channel>
+</rss>
