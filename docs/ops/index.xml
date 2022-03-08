@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MisakaJimmy Blog</title>
+    <link>https://misakaJimmy.github.io/docs/ops/</link>
+    <description>Recent content on MisakaJimmy Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/ops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About CUDA</title>
+      <link>https://misakaJimmy.github.io/docs/ops/about-cuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/about-cuda/</guid>
+      <description>查看 CUDA 版本  查看文件  查看 CUDA 安装目录下的 vesrion.txt
+通过 nvcc  1nvcc --version </description>
+    </item>
+    
+    <item>
+      <title>About GPU</title>
+      <link>https://misakaJimmy.github.io/docs/ops/about-gpu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/about-gpu/</guid>
+      <description>关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version </description>
+    </item>
+    
+    <item>
+      <title>Nvidia smi</title>
+      <link>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</guid>
+      <description>nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
+多实例 GPU 管理。
+Usage:
+1nvidia-smi mig - [options] Options include:
+ [-h | --help]:  Display help information.
+显示帮助信息
+ [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
+ [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
+ [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
+ [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。</description>
+    </item>
+    
+  </channel>
+</rss>

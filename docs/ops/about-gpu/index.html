@@ -9,15 +9,20 @@
 <link rel="mask-icon" href='https://misakaJimmy.github.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://misakaJimmy.github.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://misakaJimmy.github.io/favicons/browserconfig.xml'>
-<title>Lifelong Learning | MisakaJimmy Blog</title><meta property="og:title" content="Lifelong Learning" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://misakaJimmy.github.io/docs/" />
+<title>About GPU | MisakaJimmy Blog</title><meta property="og:title" content="About GPU" />
+<meta property="og:description" content="关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://misakaJimmy.github.io/docs/ops/about-gpu/" /><meta property="article:section" content="docs" />
 
-<meta itemprop="name" content="Lifelong Learning">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Lifelong Learning"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="About GPU">
+<meta itemprop="description" content="关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version ">
+
+<meta itemprop="wordCount" content="18">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="About GPU"/>
+<meta name="twitter:description" content="关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version "/>
 
 
 <link rel="stylesheet" href="https://misakaJimmy.github.io/css/styles.aaeedd0763acd2fb550df0b60f9fb79d05f5fe55f1f1ae345b69837ea4f7ef564ec90e2d13ac0418bcc984c0333b1871994e87d59b68910a41b50d71da40382c.css" integrity="sha512-qu7dB2Os0vtVDfC2D5&#43;3nQX1/lXx8a40W2mDfqT371ZOyQ4tE6wEGLzJhMAzOxhxmU6H1ZtokQpBtQ1x2kA4LA==">
@@ -25,9 +30,11 @@
 
 
 
+  <meta name="description" content="关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version ">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href="https://misakaJimmy.github.io/" class="nav_brand">
@@ -89,7 +96,7 @@
 </svg></label>
   </div>
   <section class="section aside_inner">
-    <h2 class="section_title active"><a  href="https://misakaJimmy.github.io/docs/" class="group">Lifelong Learning</a></h2>
+    <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/" class="group">Lifelong Learning</a></h2>
       <section class="" id="docs-lifelong-learning">
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://misakaJimmy.github.io/docs/frontend/" class="group">Frontend</a></h2>
@@ -224,7 +231,7 @@
     <li><a href="#查看-cuda-版本">查看 CUDA 版本</a></li>
   </ul>
 </nav>
-        <h3 class="section_link"><a id="docs-about-gpu" href="https://misakaJimmy.github.io/docs/ops/about-gpu/">About GPU</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-about-gpu" href="https://misakaJimmy.github.io/docs/ops/about-gpu/">About GPU</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#关于显卡驱动">关于显卡驱动</a>
       <ul>
@@ -251,90 +258,34 @@
 </aside>
 
   <main class="content">
-    <h1>Lifelong Learning</h1><h2 id="什么是终身学习">什么是终身学习？</h2>
-
-<div class="tip">
-  终身学习是一种以个人发展为重点的自发教育形式。虽然终身学习没有标准化的定义，但它通常是指发生在正规教育机构之外的学习，例如学校、大学或企业培训。
-</div>
-
-<p>然而，终身学习并不一定限于非正式学习。最好将其描述为以实现个人成就为目的的自愿。实现这一目标的手段可能会导致非正式或正式的教育。</p>
-<h2 id="终身学习的重要性">终身学习的重要性</h2>
-<p>无论是追求个人兴趣和激情，还是追求职业抱负，终身学习都可以帮助我们实现个人成就感和满足感。</p>
-<p>它承认人类有探索、学习和成长的自然动力，并鼓励我们通过关注激发我们灵感的想法和目标来提高我们自己的生活质量和自我价值感。</p>
-<p><img src="/images/life-long-learning.png" alt="LifeLong-Learning"></p>
-<h3 id="我们都是终身学习者">我们都是终身学习者</h3>
-<p>但是个人成就感是什么意思呢？</p>
-<p>现实情况是，我们大多数人在正规学校教育和工作之外都有目标或兴趣。这就是作为人类的一部分含义：我们有天生的好奇心，我们是天生的学习者。我们的发展和成长得益于我们的学习能力。</p>
-<p>终身学习认识到并非我们所有的学习都来自课堂。</p>
-<ul>
-<li>例如，在童年时期，我们学习说话或骑自行车。</li>
-<li>作为成年人，我们学习如何使用智能手机或学习如何烹饪新菜。</li>
-</ul>
-<p>这些是我们每天通过社交、反复试验或自发学习进行的日常终身学习的例子。</p>
-<p>个人成就和发展是指引导我们学习新事物的自然兴趣、好奇心和动机。我们为自己学习，而不是为别人学习。</p>
-<h3 id="终身学习的关键清单">终身学习的关键清单</h3>
-<ul>
-<li>自主性</li>
-<li>自我激励或自我发起</li>
-<li>并不总是需要成本</li>
-<li>通常是非正式的</li>
-<li>自学或寻求指导</li>
-<li>动机是出于个人兴趣或个人发展</li>
-</ul>
-<h2 id="终身学习的例子">终身学习的例子</h2>
-<p>以下是您可以参与的一些终身学习计划类型：</p>
-<ul>
-<li><strong>培养新技能</strong>（例如缝纫、烹饪、编程、公开演讲等）</li>
-<li><strong>自学学习</strong>（例如学习一门新语言、研究感兴趣的话题、订阅播客等）</li>
-<li><strong>学习一项新的运动或活动</strong>（例如参加武术、学习滑雪、学习锻炼等）</li>
-<li><strong>学习使用新技术</strong>（智能设备、新软件应用程序等）</li>
-<li><strong>获取新知识</strong>（通过在线教育或课堂课程学习自学课程）</li>
-</ul>
-<h2 id="终身学习的好处">终身学习的好处</h2>
-<p>将终身学习融入您的生活可以带来许多长期利益，包括：</p>
-<h4 id="1-新的自我激励">1. 新的自我激励</h4>
-<p>有时，我们在做某事时会陷入常规，仅仅是因为我们必须这样做，例如去上班或打扫房子。</p>
-<p>弄清楚是什么激发了你的灵感，让你重新回到驾驶座上，并提醒你在生活中你真的可以做你想做的事情。</p>
-<h4 id="2-认同个人兴趣和目标">2. 认同个人兴趣和目标</h4>
-<p>重新点燃让你成为一个人的东西，减少无聊，让生活更有趣，甚至可以打开未来的机会。</p>
-<p>如果你专注于它们，你永远不知道你的兴趣会把你带到哪里。</p>
-<h4 id="3-其他个人和专业技能的提高">3. 其他个人和专业技能的提高</h4>
-<p>在我们忙于学习新技能或获取新知识的同时，我们也在培养其他有价值的技能，这些技能可以在我们的个人和职业生活中为我们提供帮助。</p>
-<p>这是因为我们利用其他技能来学习新事物。例如，学习缝纫需要解决问题。学习绘画涉及培养创造力。</p>
-<p>技能发展可以包括人际交往能力、创造力、解决问题的能力、批判性思维、领导力、反思、适应能力等等。</p>
-<h4 id="4-增强自信心">4. 增强自信心</h4>
-<p>在某些方面变得更有知识或技能可以增加我们在个人和职业生活中的自信心。</p>
-<ul>
-<li>在我们的个人生活中，这种自信可以源于投入时间和精力学习和提高的满足感，给我们一种成就感。</li>
-<li>在我们的职业生涯中，这种自信可以是我们对自己的知识和应用所学知识的能力的信任感。</li>
-</ul>
-<h2 id="我需要积极主动地进行终身学习吗">我需要积极主动地进行终身学习吗？</h2>
-<p>大多数人会在日常生活中的某个时刻通过与他人交谈、根据个人兴趣浏览互联网、阅读报纸或参与个人兴趣来学习新东西。</p>
-<p>但是，如果出于个人、家庭或职业原因，更加努力地学习新事物很重要，或者需要一个更有条理的结构，那么这里有一些开始的步骤。</p>
-<h2 id="如何在生活中采用终身学习">如何在生活中采用终身学习？</h2>
-<h4 id="1-认清自己的个人兴趣和目标">1. 认清自己的个人兴趣和目标</h4>
-<p>终身学习是关于你自己，而不是其他人以及他们想要什么。反思你对什么充满热情以及你对自己未来的展望。</p>
-<p>如果职业发展是您的个人兴趣，那么有多种方法可以参与自主学习来实现这一目标。如果学习历史是您的热情，那么同样有其他方法可以进一步探索这种兴趣。</p>
-<h4 id="2-列出你想学习或能够做的事情">2. 列出你想学习或能够做的事情</h4>
-<p>一旦你确定了是什么激励了你，探索你想要实现的特定兴趣或目标是什么。</p>
-<p>回到我们对历史充满热情的例子，也许只是希望扩大对欧洲历史的了解。或者也许兴趣如此强烈以至于攻读博士学位。是梦想的目标。</p>
-<p>这两者都是不同的兴趣水平，需要不同的学习方式。</p>
-<h4 id="3-确定您想如何参与以及可用的资源">3. 确定您想如何参与以及可用的资源</h4>
-<p>实现我们的个人目标首先要弄清楚如何开始。</p>
-<p>研究和阅读兴趣和目标可以帮助制定如何去学习它。</p>
-<p>以我们的历史为例：只想了解更多特定历史时期的人可以在图书馆目录、博客、杂志和播客中找到专门针对该主题的书籍，甚至博物馆和讲座。</p>
-<p>想要获得博士学位的个人。在历史上，个人目标可以研究可以兼职或在线完成的大学课程，以及达到博士学位所需的步骤。</p>
-<h4 id="4-将学习目标融入你的生活">4. 将学习目标融入你的生活</h4>
-<p>在忙碌的生活中制定新的学习目标需要考虑和努力。如果你不为它腾出时间和空间，它就不会发生。</p>
-<p>它很容易导致气馁或完全放弃学习计划。</p>
-<p>计划新学习计划的要求如何融入您的生活，或者您需要做些什么来使其适应。例如，如果学习一门新语言是学习目标，你能每天抽出一小时的时间吗？还是每天 15 分钟听起来更现实？</p>
-<p>了解您可以为学习目标投入的时间和空间可以帮助您长期坚持目标。</p>
-<h4 id="5-做出承诺">5. 做出承诺</h4>
-<p>做出参与新学习计划的决定是最后也是最重要的一步。如果您设定了切合实际的期望并有自我激励来实现它，那么请致力于它并避免找借口。</p>
-
-    <div class="pager pager_lean">
+    <h1>About GPU</h1><h2 id="关于显卡驱动">关于显卡驱动</h2>
+<h3 id="查看显卡型号和驱动版本">查看显卡型号和驱动版本</h3>
+<h4 id="查看显卡型号">查看显卡型号</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>lspci <span class="p">|</span> grep -i nvidia
+</code></pre></div><h4 id="查看驱动版本">查看驱动版本</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo dpkg --list <span class="p">|</span> grep nvidia-*
+</code></pre></div><h4 id="查看正在使用的显卡驱动所使用的内核版本">查看正在使用的显卡驱动所使用的内核版本</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>cat /proc/driver/nvidia/version
+</code></pre></div>
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="https://misakaJimmy.github.io/docs/frontend/tools/yarn/" class="pager_link button" title="Yarn" rel="prev">
+        <span class="pager_label">Yarn</span>
+      </a>
+    </div>
+    
   
 
+  
+    
+    <div class="pager_item next">
+      <a href="https://misakaJimmy.github.io/docs/frontend/tools/lerna/" class="pager_link button" title="Lerna" rel="next">
+        <span class="pager_label">Lerna</span>
+      </a>
+    </div>
+    
   
 </div>
   </main>

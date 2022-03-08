@@ -44,6 +44,16 @@
     </item>
     
     <item>
+      <title>About CUDA</title>
+      <link>https://misakaJimmy.github.io/docs/ops/about-cuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/about-cuda/</guid>
+      <description>查看 CUDA 版本  查看文件  查看 CUDA 安装目录下的 vesrion.txt
+通过 nvcc  1nvcc --version </description>
+    </item>
+    
+    <item>
       <title>InversifyJS 基础演示(TS)</title>
       <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -61,6 +71,15 @@
       
       <guid>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</guid>
       <description>安装yarn 下载 nodejs 通过 npm 安装 1npm install -g yarn 查看版本 1yarn --version 设置淘宝源 1yarn config set registry https://registry.npm.taobao.org 2yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass # node-sass 二进制包镜像 3yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ # electron 二进制包镜像 4yarn config set ELECTRON_MIRROR https://cdn.npm.taobao.org/dist/electron/ # electron 二进制包镜像 5yarn config set puppeteer_download_host https://npm.taobao.org/mirrors # puppeteer 二进制包镜像 6yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver # chromedriver 二进制包镜像 7yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver # operadriver 二进制包镜像 8yarn config set phantomjs_cdnurl https://npm.</description>
+    </item>
+    
+    <item>
+      <title>About GPU</title>
+      <link>https://misakaJimmy.github.io/docs/ops/about-gpu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/about-gpu/</guid>
+      <description>关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version </description>
     </item>
     
     <item>
@@ -87,6 +106,24 @@ Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下�
       <description>对类的支持 InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 @injectable，但不需要使用装饰器 @inject。
 使用类作为服务标识时不需要 @inject 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：
  导入 reflect-metadata 在 tsconfig.json 文件中设置 emitDecoratorMetadata 为 true  1import { Container, injectable, inject } from &amp;#34;inversify&amp;#34;; 2 3@injectable() 4class Katana { 5 public hit() { 6 return &amp;#34;cut!&amp;#34;; 7 } 8} 9 10@injectable() 11class Shuriken { 12 public throw() { 13 return &amp;#34;hit!&amp;#34;; 14 } 15} 16 17@injectable() 18class Ninja implements Ninja { 19 20 private _katana: Katana; 21 private _shuriken: Shuriken; 22 23 public constructor(katana: Katana, shuriken: Shuriken) { 24 this.</description>
+    </item>
+    
+    <item>
+      <title>Nvidia smi</title>
+      <link>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</guid>
+      <description>nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
+多实例 GPU 管理。
+Usage:
+1nvidia-smi mig - [options] Options include:
+ [-h | --help]:  Display help information.
+显示帮助信息
+ [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
+ [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
+ [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
+ [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。</description>
     </item>
     
     <item>
