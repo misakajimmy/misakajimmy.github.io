@@ -43,5 +43,15 @@ Usage:
  [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。</description>
     </item>
     
+    <item>
+      <title>HGX A100 8-GPU install</title>
+      <link>https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/</guid>
+      <description>安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
+安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。</description>
+    </item>
+    
   </channel>
 </rss>

@@ -9,47 +9,23 @@
 <link rel="mask-icon" href='https://misakaJimmy.github.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://misakaJimmy.github.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://misakaJimmy.github.io/favicons/browserconfig.xml'>
-<title>Nvidia smi | MisakaJimmy Blog</title><meta property="og:title" content="Nvidia smi" />
-<meta property="og:description" content="nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
-多实例 GPU 管理。
-Usage:
-1nvidia-smi mig - [options] Options include:
- [-h | --help]:  Display help information.
-显示帮助信息
- [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
- [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
- [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
- [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。" />
+<title>HGX A100 8-GPU install | MisakaJimmy Blog</title><meta property="og:title" content="HGX A100 8-GPU install" />
+<meta property="og:description" content="安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
+安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://misakaJimmy.github.io/docs/ops/nvidia-smi/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/" /><meta property="article:section" content="docs" />
 
 
 
-<meta itemprop="name" content="Nvidia smi">
-<meta itemprop="description" content="nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
-多实例 GPU 管理。
-Usage:
-1nvidia-smi mig - [options] Options include:
- [-h | --help]:  Display help information.
-显示帮助信息
- [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
- [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
- [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
- [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。">
+<meta itemprop="name" content="HGX A100 8-GPU install">
+<meta itemprop="description" content="安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
+安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。">
 
-<meta itemprop="wordCount" content="165">
+<meta itemprop="wordCount" content="472">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Nvidia smi"/>
-<meta name="twitter:description" content="nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
-多实例 GPU 管理。
-Usage:
-1nvidia-smi mig - [options] Options include:
- [-h | --help]:  Display help information.
-显示帮助信息
- [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
- [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
- [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
- [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。"/>
+<meta name="twitter:title" content="HGX A100 8-GPU install"/>
+<meta name="twitter:description" content="安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
+安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。"/>
 
 
 <link rel="stylesheet" href="https://misakaJimmy.github.io/css/styles.aaeedd0763acd2fb550df0b60f9fb79d05f5fe55f1f1ae345b69837ea4f7ef564ec90e2d13ac0418bcc984c0333b1871994e87d59b68910a41b50d71da40382c.css" integrity="sha512-qu7dB2Os0vtVDfC2D5&#43;3nQX1/lXx8a40W2mDfqT371ZOyQ4tE6wEGLzJhMAzOxhxmU6H1ZtokQpBtQ1x2kA4LA==">
@@ -57,16 +33,8 @@ Usage:
 
 
 
-  <meta name="description" content="nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
-多实例 GPU 管理。
-Usage:
-1nvidia-smi mig - [options] Options include:
- [-h | --help]:  Display help information.
-显示帮助信息
- [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
- [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
- [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
- [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。">
+  <meta name="description" content="安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
+安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。">
 
 
 </head>
@@ -282,12 +250,12 @@ Usage:
     </li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-nvidia-smi" href="https://misakaJimmy.github.io/docs/ops/nvidia-smi/">Nvidia smi</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-nvidia-smi" href="https://misakaJimmy.github.io/docs/ops/nvidia-smi/">Nvidia smi</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#nvidia-smi-mig">nvidia-smi mig</a></li>
   </ul>
 </nav>
-        <h3 class="section_link"><a id="docs-hgx-a100-8-gpu-install" href="https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/">HGX A100 8-GPU install</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-hgx-a100-8-gpu-install" href="https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/">HGX A100 8-GPU install</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#安装-cuda">安装 CUDA</a></li>
     <li><a href="#安装-fabric-manager">安装 Fabric Manager</a>
@@ -311,81 +279,247 @@ Usage:
 </aside>
 
   <main class="content">
-    <h1>Nvidia smi</h1><h2 id="nvidia-smi-mig">nvidia-smi mig</h2>
+    <h1>HGX A100 8-GPU install</h1><h2 id="安装-cuda">安装 CUDA</h2>
 
 <div class="tip">
-  此章节源自于 <code>nvidia-smi mig --help</code>，在此基础上进行汉化批注以及添加示例。
+  没啥好说的，按照<a href="https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html#ubuntu-lts">这份文档</a>里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。
 </div>
 
-<p>mig -- Multi Instance GPU management.</p>
-<p>多实例 GPU 管理。</p>
-<p>Usage:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>nvidia-smi mig - <span class="o">[</span>options<span class="o">]</span>
-</code></pre></div><p>Options include:</p>
-<ul>
-<li>[<code>-h</code> | <code>--help</code>]:</li>
-</ul>
-<p>Display help information.</p>
-<p>显示帮助信息</p>
-<ul>
-<li>[<code>-i</code> | <code>--id</code>]:</li>
-</ul>
-<p>枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。</p>
-<ul>
-<li>[<code>-gi</code> | <code>--gpu-instance-id</code>]:</li>
-</ul>
-<p>GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。</p>
-<ul>
-<li>[<code>-ci</code> | <code>--compute-instance-id</code>]:</li>
-</ul>
-<p>计算实例 ID。当拥有多个计算实例时使用逗号分隔。</p>
-<ul>
-<li>[<code>-lgip</code> | <code>--list-gpu-instance-profiles</code>]:</li>
-</ul>
-<p>列出支持的 GPU 实例配置文件。使用 <code>-i</code> 可以将此命令重定向到特定的 GPU。</p>
-<ul>
-<li>[<code>-lgipp</code> | <code>--list-gpu-instance-possible-placements</code>]:</li>
-</ul>
-<p>以下面的格式列出可能的 GPU 实例展示方式，{Start}:Size。使用 <code>-i</code> 可以将此命令重定向到特定的 GPU。</p>
-<ul>
-<li>[<code>-C</code> | <code>--default-compute-instance</code>]:</li>
-</ul>
-<p>当使用 <code>-cgi</code> 创建 GPU 实例时使用默认配置文件。</p>
-<ul>
-<li>[<code>-cgi</code> | <code>--create-gpu-instance</code>]:</li>
-</ul>
-<p>用给定的配置文件元组创建 GPU 实例。一个配置文件元组包含配置文件名称或者 ID 以及一个可选的放置说明符，放置说明符由一个 <code>:</code> 和一个放置开始索引组成。使用逗号分隔多个配置文件元组，选项 -i 可用于限制命令在特定 GPU 上运行。</p>
-<ul>
-<li>[<code>-dgi</code> | <code>--destroy-gpu-instance</code>]:</li>
-</ul>
-<p>摧毁 GPU 实例。使用 <code>-i</code> 或者 <code>-gi</code> 可以独立或者组合的重定向到特定的 GPU 或者 GPU 实例。</p>
-<ul>
-<li>[<code>-lgi</code> | <code>--list-gpu-instances</code>]:</li>
-</ul>
-<p>列出 GPU 实例。使用 <code>-i</code> 可以将此命令重定向到特定的 GPU。</p>
-<ul>
-<li>[<code>-lcip</code> | <code>--list-compute-instance-profiles</code>]:</li>
-</ul>
-<p>列出支持的计算实例配置文件。使用 <code>-i</code> 或者 <code>-gi</code> 可以独立或者组合的重定向到特定的 GPU 或者 GPU 实例。</p>
-<ul>
-<li>[<code>-cci</code> | <code>--create-compute-instance</code>]:</li>
-</ul>
-<p>为给定的配置文件名称或 ID 创建计算实例。当拥有多个配置文件时使用逗号分隔。使用 <code>-i</code> 或者 <code>-gi</code> 可以独立或者组合的重定向到特定的 GPU 或者 GPU 实例。</p>
-<ul>
-<li>[<code>-dci</code> | <code>--destroy-compute-instance</code>]:</li>
-</ul>
-<p>摧毁计算实例。使用 <code>-i</code> 或者 <code>-gi</code> 或者 <code>-ci</code> 可以独立或者组合的重定向到特定的 GPU 或者 GPU 实例或者计算实例。</p>
-<ul>
-<li>[<code>-lci</code> | <code>--list-compute-instances</code>]:</li>
-</ul>
-<p>列出计算实例。使用 <code>-i</code> 或者 <code>-gi</code> 可以独立或者组合的重定向到特定的 GPU 或者 GPU 实例。</p>
+<p>特别注意的的是，在第五步 <code>sudo apt-get -y install cuda-drivers</code> 时，建议加上 <code>--no-install-recommends</code> ，这样可以避免安装图形化界面。</p>
+<h2 id="安装-fabric-manager">安装 Fabric Manager</h2>
 
+<div class="tip">
+  <a href="https://docs.nvidia.com/datacenter/tesla/pdf/fabric-manager-user-guide.pdf">参考文档</a>
+</div>
+
+<h3 id="简介">简介</h3>
+<p>NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。</p>
+<h3 id="安装">安装</h3>
+<p>跳转到参考文档的 2.6 章节。</p>
+<p>安装 cuda-drivers-fabricmanager</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo apt-get install cuda-drivers-fabricmanager
+</code></pre></div><p>启动服务并设置自动启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo systemctl start nvidia-fabricmanager
+<span class="ln">2</span>sudo systemctl <span class="nb">enable</span> nvidia-fabricmanager
+</code></pre></div><p>查看服务状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo systemctl status nvidia-fabricmanager
+</code></pre></div><h2 id="a100-gpu-切割实战">A100 GPU 切割实战</h2>
+
+<div class="tip">
+  此章节是聚焦于通过 <code>nvidia-smi mig</code> 来对 A100 进行 GPU 切割以及计算实例的创建与删除。
+</div>
+
+<h3 id="before-all">Before all</h3>
+<p>如果刚上手玩 A100 的 GPU 切割，最好先要先检查是否有残存的计算实例以及切割出来的 GPU。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span><span class="c1"># 列出计算实例</span>
+<span class="ln">2</span>sudo nvidia-smi mig -lci
+<span class="ln">3</span><span class="c1"># 列出 GPU 实例</span>
+<span class="ln">4</span>sudo nvidia-smi mig -lgi
+</code></pre></div><p>如果有建议确保数据保存的情况下删除它们</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span><span class="c1"># 删除计算实例</span>
+<span class="ln">2</span>sudo nvidia-smi mig -dci
+<span class="ln">3</span><span class="c1"># 删除 GPU 实例</span>
+<span class="ln">4</span>sudo nvidia-smi mig -dgi
+</code></pre></div><p>如果出现错误，错误提示被占用，建议使用 <code>sudo fuser -v /dev/nvidia*</code> 命令来列出被占用的进程，请在确保安全的情况下停掉他们。</p>
+<h3 id="开始切割">开始切割</h3>
+<p>使用 <code>-lgip</code> 列出支持的 GPU 实例配置文件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo nvidia-smi mig -lgip
+</code></pre></div><p>可能会得到如下结果</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>+-----------------------------------------------------------------------------+
+<span class="ln"> 2</span>| GPU instance profiles:                                                      |
+<span class="ln"> 3</span>| GPU   Name             ID    Instances   Memory     P2P    SM    DEC   ENC  |
+<span class="ln"> 4</span>|                              Free/Total   GiB              CE    JPEG  OFA  |
+<span class="ln"> 5</span>|=============================================================================|
+<span class="ln"> 6</span>|   0  MIG 1g.10gb       19     7/7        9.50       No     14     0     0   |
+<span class="ln"> 7</span>|                                                             1     0     0   |
+<span class="ln"> 8</span>+-----------------------------------------------------------------------------+
+<span class="ln"> 9</span>|   0  MIG 1g.10gb+me    20     1/1        9.50       No     14     1     0   |
+<span class="ln">10</span>|                                                             1     1     1   |
+<span class="ln">11</span>+-----------------------------------------------------------------------------+
+<span class="ln">12</span>|   0  MIG 2g.20gb       14     3/3        19.50      No     28     1     0   |
+<span class="ln">13</span>|                                                             2     0     0   |
+<span class="ln">14</span>+-----------------------------------------------------------------------------+
+<span class="ln">15</span>|   0  MIG 3g.40gb        9     2/2        39.25      No     42     2     0   |
+<span class="ln">16</span>|                                                             3     0     0   |
+<span class="ln">17</span>+-----------------------------------------------------------------------------+
+<span class="ln">18</span>|   0  MIG 4g.40gb        5     1/1        39.25      No     56     2     0   |
+<span class="ln">19</span>|                                                             4     0     0   |
+<span class="ln">20</span>+-----------------------------------------------------------------------------+
+<span class="ln">21</span>|   0  MIG 7g.80gb        0     1/1        78.75      No     98     5     0   |
+<span class="ln">22</span>|                                                             7     1     1   |
+<span class="ln">23</span>+-----------------------------------------------------------------------------+
+<span class="ln">24</span>|   1  MIG 1g.10gb       19     7/7        9.50       No     14     0     0   |
+<span class="ln">25</span>|                                                             1     0     0   |
+<span class="ln">26</span>......
+<span class="ln">27</span>......
+</code></pre></div><p>这里面可以看到各个 GPU 的几个切割方案下的剩余容量，Nvidia A100 最多支持切割为 7 块 GPU 实例。比如在 A100-80G 中支持如下切割方案：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">GPU</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">ID</th>
+<th style="text-align:left">Instances Free/Total</th>
+<th style="text-align:left">Memory  GiB</th>
+<th style="text-align:left">P2P</th>
+<th style="text-align:left">SM CE</th>
+<th style="text-align:left">DEC JPEG</th>
+<th style="text-align:left">ENC OFA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 1g.10gb</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">7/7</td>
+<td style="text-align:left">9.50</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">14</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 1g.10gb+me</td>
+<td style="text-align:left">20</td>
+<td style="text-align:left">1/1</td>
+<td style="text-align:left">9.50</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">14</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 2g.20gb</td>
+<td style="text-align:left">14</td>
+<td style="text-align:left">3/3</td>
+<td style="text-align:left">19.50</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">28</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 3g.40gb</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">2/2</td>
+<td style="text-align:left">39.25</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">42</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 4g.40gb</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1/1</td>
+<td style="text-align:left">39.25</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">56</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">MIG 7g.80gb</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1/1</td>
+<td style="text-align:left">78.75</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">98</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到 Nvidia 提供了 6 种切割方案，记住这里的 ID ，之后创建的时候要用到。</p>
+<p>开始切割，如果我们要在 0 号 GPU 上切割出 7 个 1g.10gb 的实例，我们需要如下命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo nvidia-smi mig -cgi 19,19,19,19,19,19,19 -i <span class="m">0</span> -C 
+</code></pre></div><p>具体的指令解析，详情看<a href="../nvidia-smi/">这份文档</a>。</p>
+<p>删除实例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span>sudo nvidia-smi mig -dci <span class="o">[</span>device ID<span class="o">]</span> -gi <span class="o">[</span>GPU ID<span class="o">]</span> -i <span class="o">[</span>GPU ID<span class="o">]</span>
+</code></pre></div><p>列出实例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="ln">1</span><span class="c1"># 列出计算实例</span>
+<span class="ln">2</span>sudo nvidia-smi mig -lci
+<span class="ln">3</span><span class="c1"># 列出 GPU 实例</span>
+<span class="ln">4</span>sudo nvidia-smi mig -lgi
+</code></pre></div>
     <div class="pager">
   
     
     <div class="pager_item prev">
-      <a href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/" class="pager_link button" title="对类的支持" rel="prev">
-        <span class="pager_label">对类的支持</span>
+      <a href="https://misakaJimmy.github.io/docs/frontend/basic/symbol/" class="pager_link button" title="Symbol" rel="prev">
+        <span class="pager_label">Symbol</span>
       </a>
     </div>
     
@@ -394,8 +528,8 @@ Usage:
   
     
     <div class="pager_item next">
-      <a href="https://misakaJimmy.github.io/docs/frontend/basic/symbol/" class="pager_link button" title="Symbol" rel="next">
-        <span class="pager_label">Symbol</span>
+      <a href="https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/" class="pager_link button" title="" rel="next">
+        <span class="pager_label"></span>
       </a>
     </div>
     
