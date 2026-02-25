@@ -163,4 +163,53 @@ repositories with git and npm.&lt;/strong&gt;&lt;/p&gt;
  &lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;
-&lt;p&gt;Lerna 中的两个主要命令是 &lt;code&gt;lerna bootstrap&lt;/code&gt; 和 &lt;code&gt;lerna publish&lt;/code&gt;。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Lerna 中的两个主要命令是 &lt;code&gt;lerna bootstrap&lt;/code&gt; 和 &lt;code&gt;lerna publish&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>Node-gyp 与 Node Headers 原理解析</title><link>https://misakaJimmy.github.io/docs/frontend/tools/node-gyp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/tools/node-gyp/</guid><description>&lt;h1 id="node-gyp-与-node-headers-原理解析" class=link_owner&gt;
+ Node-gyp 与 Node Headers 原理解析
+ &lt;a href="#node-gyp-%e4%b8%8e-node-headers-%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;在进行 VSCode 插件开发、LSP 服务开发或涉及本地能力扩展时，经常会遇到 &lt;code&gt;node-gyp&lt;/code&gt;。很多人只知道“它会编译东西”，但不清楚它到底做什么。&lt;/p&gt;
+&lt;p&gt;本文从工程视角讲清楚：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;node-gyp 是什么&lt;/li&gt;
+&lt;li&gt;node headers 是什么&lt;/li&gt;
+&lt;li&gt;它们在实际项目中的作用&lt;/li&gt;
+&lt;li&gt;为什么国内经常安装失败&lt;/li&gt;
+&lt;li&gt;在 IDE / 工具链场景下的实际意义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="一句话解释" class=link_owner&gt;
+ 一句话解释
+ &lt;a href="#%e4%b8%80%e5%8f%a5%e8%af%9d%e8%a7%a3%e9%87%8a" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;node-gyp&lt;/strong&gt;：用于编译 Node.js C++ 原生扩展的构建工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;node headers&lt;/strong&gt;：编译原生扩展时所需的 Node.js C/C++ 接口声明文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="1-为什么需要-node-gyp" class=link_owner&gt;
+ 1. 为什么需要 node-gyp？
+ &lt;a href="#1-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81-node-gyp" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Node.js 底层是 C++（基于 V8 引擎）。&lt;/p&gt;
+&lt;p&gt;大部分 npm 包是 JavaScript 编写的，但某些对性能要求较高的模块使用 C++ 编写，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据库驱动&lt;/li&gt;
+&lt;li&gt;加密库&lt;/li&gt;
+&lt;li&gt;图像处理库&lt;/li&gt;
+&lt;li&gt;本地文件系统增强模块&lt;/li&gt;
+&lt;li&gt;高性能 AST 解析库&lt;/li&gt;
+&lt;li&gt;终端模拟（如 node-pty）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些模块需要：&lt;/p&gt;</description></item></channel></rss>
