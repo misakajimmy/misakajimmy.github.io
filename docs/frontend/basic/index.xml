@@ -1,25 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>前端基础 on MisakaJimmy Blog</title>
-    <link>https://misakaJimmy.github.io/docs/frontend/basic/</link>
-    <description>Recent content in 前端基础 on MisakaJimmy Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/basic/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Symbol</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</guid>
-      <description>Symbol 原文链接：developer.mozilla.orgsymbol 是一种基本数据类型 （primitive data type）。Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：&amp;quot;new Symbol()&amp;quot;。
-语法 1Symbol([description]) 参数  description 可选  可选的，字符串类型。对symbol的描述，可用于调试但不是访问symbol本身。
-描述 直接使用Symbol()创建新的symbol类型，并用一个可选的字符串作为其描述。
-1var sym1 = Symbol(); 2var sym2 = Symbol(&amp;#39;foo&amp;#39;); 3var sym3 = Symbol(&amp;#39;foo&amp;#39;); 上面的代码创建了三个新的symbol类型。 注意，Symbol(&amp;quot;foo&amp;quot;) 不会强制将字符串 “foo” 转换成symbol类型。它每次都会创建一个新的 symbol类型：
-1Symbol(&amp;#34;foo&amp;#34;) === Symbol(&amp;#34;foo&amp;#34;); // false 下面带有 new 运算符的语法将抛出 TypeError 错误：
-1var sym = new Symbol(); // TypeError 这会阻止创建一个显式的 Symbol 包装器对象而不是一个 Symbol 值。围绕原始数据类型创建一个显式包装器对象从 ECMAScript 6 开始不再被支持。 然而，现有的原始包装器对象，如 new Boolean、new String以及new Number，因为遗留原因仍可被创建。
-如果你真的想创建一个 Symbol 包装器对象 (Symbol wrapper object)，你可以使用 Object() 函数：</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端基础 on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/frontend/basic/</link><description>Recent content in 前端基础 on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>Symbol</title><link>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</guid><description>&lt;h1 id="symbol" class=link_owner&gt;
+ Symbol
+ &lt;a href="#symbol" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;div class="tip"&gt;
+ 原文链接：&lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol"&gt;developer.mozilla.org&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;symbol&lt;/strong&gt; 是一种基本数据类型 （&lt;a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Primitive"&gt;primitive data type&lt;/a&gt;）。&lt;code&gt;Symbol()&lt;/code&gt;函数会返回&lt;strong&gt;symbol&lt;/strong&gt;类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：&amp;quot;&lt;code&gt;new Symbol()&lt;/code&gt;&amp;quot;。&lt;/p&gt;
+&lt;iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/symbol-constructor.html" 
+style="width:100%; height:700px; border:0; border-radius: 4px; overflow:hidden;"&gt; &lt;/iframe&gt;
+&lt;h2 id="语法" class=link_owner&gt;
+ 语法
+ &lt;a href="#%e8%af%ad%e6%b3%95" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nx"&gt;description&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="参数" class=link_owner&gt;
+ 参数
+ &lt;a href="#%e5%8f%82%e6%95%b0" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;description&lt;/code&gt; &lt;code&gt;可选&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可选的，字符串类型。对symbol的描述，可用于调试但不是访问symbol本身。&lt;/p&gt;
+&lt;h2 id="描述" class=link_owner&gt;
+ 描述
+ &lt;a href="#%e6%8f%8f%e8%bf%b0" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;直接使用&lt;code&gt;Symbol()&lt;/code&gt;创建新的symbol类型，并用一个可选的字符串作为其描述。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面的代码创建了三个新的symbol类型。 注意，&lt;code&gt;Symbol(&amp;quot;foo&amp;quot;)&lt;/code&gt; 不会强制将字符串 “foo” 转换成symbol类型。它每次都会创建一个新的 symbol类型：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下面带有 &lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new"&gt;new&lt;/a&gt; 运算符的语法将抛出 &lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError"&gt;TypeError&lt;/a&gt; 错误：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="c1"&gt;// TypeError
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会阻止创建一个显式的 Symbol 包装器对象而不是一个 Symbol 值。围绕原始数据类型创建一个显式包装器对象从 ECMAScript 6 开始不再被支持。 然而，现有的原始包装器对象，如 &lt;code&gt;new Boolean&lt;/code&gt;、&lt;code&gt;new String&lt;/code&gt;以及&lt;code&gt;new Number&lt;/code&gt;，因为遗留原因仍可被创建。&lt;/p&gt;</description></item></channel></rss>

@@ -1,44 +1,151 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>InversifyJS on MisakaJimmy Blog</title>
-    <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/</link>
-    <description>Recent content in InversifyJS on MisakaJimmy Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>项目中引入 InversifyJS</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</guid>
-      <description>安装 可以通过 npm 或者 yarn 来引入 InversifyJS：
-1yarn add inversify reflect-metadata InversifyJS 类型定义包含在 inversify npm 包中。InversifyJS 需要 experimentalDecorators、 emitDecoratorMetadata 和 lib 编译选项开启在 tsconfig.json 文件中。1{ 2 &amp;#34;compilerOptions&amp;#34;: { 3 &amp;#34;experimentalDecorators&amp;#34;: true, 4 &amp;#34;emitDecoratorMetadata&amp;#34;: true 5 } 6} InversifyJS 需要一个支持下面特性的现代 JavaScript 引擎：
- Reflect metadata Promise (仅在使用 provider injection 时需要) Proxy (仅在使用 activation handlers 时需要)  如果你的环境不支持其中的特性，那么需要引入 shim 或者 polyfill。
-环境支持和 polyfills InversifyJS 需要一个现代的 JavaScript 引擎，需要支持 Promise、 Map、 Metadata Reflection API 和 Proxy 对象。 如果你的环境不支持这些的化，就需要引入 shim 或者 polyfill。</description>
-    </item>
-    
-    <item>
-      <title>InversifyJS 基础演示(TS)</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</guid>
-      <description>代码解析 1import * as inversify from &amp;#39;inversify&amp;#39;; 2import &amp;#39;reflect-metadata&amp;#39;; 引入 inversify 以及 reflect-metadata 两个包。
-1const TYPES = { 2 // 忍者 3 Ninja: &amp;#39;Ninja&amp;#39;, 4 // 武士刀 5 Katana: &amp;#39;Katana&amp;#39;, 6 // 手里剑 7 Shuriken: &amp;#39;Shuriken&amp;#39; 8} 定义了类对应的映射，这里定义了三个类，看过火影的应该很容易理解Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)之间的关系。
-1class Katana { 2 hit() { 3 return &amp;#39;cut!&amp;#39;; 4 } 5} 6 7class Shuriken { 8 throw() { 9 return &amp;#39;hit!&amp;#39;; 10 } 11} 12 13class Ninja { 14 private _katana: Katana; 15 private _shuriken: Shuriken; 16 17 constructor(katana: Katana, shuriken: Shuriken) { 18 this.</description>
-    </item>
-    
-    <item>
-      <title>对类的支持</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</guid>
-      <description>对类的支持 InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 @injectable，但不需要使用装饰器 @inject。
-使用类作为服务标识时不需要 @inject 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：
- 导入 reflect-metadata 在 tsconfig.json 文件中设置 emitDecoratorMetadata 为 true  1import { Container, injectable, inject } from &amp;#34;inversify&amp;#34;; 2 3@injectable() 4class Katana { 5 public hit() { 6 return &amp;#34;cut!&amp;#34;; 7 } 8} 9 10@injectable() 11class Shuriken { 12 public throw() { 13 return &amp;#34;hit!&amp;#34;; 14 } 15} 16 17@injectable() 18class Ninja implements Ninja { 19 20 private _katana: Katana; 21 private _shuriken: Shuriken; 22 23 public constructor(katana: Katana, shuriken: Shuriken) { 24 this.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>InversifyJS on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/</link><description>Recent content in InversifyJS on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/frontend/inversifyjs/index.xml" rel="self" type="application/rss+xml"/><item><title>项目中引入 InversifyJS</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</guid><description>&lt;h2 id="安装" class=link_owner&gt;
+ 安装
+ &lt;a href="#%e5%ae%89%e8%a3%85" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;可以通过 &lt;code&gt;npm&lt;/code&gt; 或者 &lt;code&gt;yarn&lt;/code&gt; 来引入 &lt;code&gt;InversifyJS&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yarn add inversify reflect-metadata
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="tip tip_warning"&gt;
+ InversifyJS 类型定义包含在 inversify npm 包中。InversifyJS 需要 experimentalDecorators、 emitDecoratorMetadata 和 lib 编译选项开启在 tsconfig.json 文件中。
+&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;compilerOptions&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;experimentalDecorators&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;emitDecoratorMetadata&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;InversifyJS 需要一个支持下面特性的现代 JavaScript 引擎：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://rbuckton.github.io/reflect-metadata/"&gt;Reflect metadata&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;Promise&lt;/a&gt; (仅在使用 &lt;a href="https://github.com/inversify/InversifyJS#injecting-a-provider-asynchronous-factory"&gt;provider injection&lt;/a&gt; 时需要)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"&gt;Proxy&lt;/a&gt; (仅在使用 &lt;a href="https://github.com/inversify/InversifyJS/blob/master/wiki/activation_handler.md"&gt;activation handlers&lt;/a&gt; 时需要)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你的环境不支持其中的特性，那么需要引入 shim 或者 polyfill。&lt;/p&gt;
+&lt;h2 id="环境支持和-polyfills" class=link_owner&gt;
+ 环境支持和 polyfills
+ &lt;a href="#%e7%8e%af%e5%a2%83%e6%94%af%e6%8c%81%e5%92%8c-polyfills" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;InversifyJS 需要一个现代的 JavaScript 引擎，需要支持 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;Promise&lt;/a&gt;、 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"&gt;Map&lt;/a&gt;、 &lt;a href="https://rbuckton.github.io/reflect-metadata/"&gt;Metadata Reflection API&lt;/a&gt; 和 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"&gt;Proxy&lt;/a&gt; 对象。 如果你的环境不支持这些的化，就需要引入 shim 或者 polyfill。&lt;/p&gt;</description></item><item><title>InversifyJS 基础演示(TS)</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</guid><description>&lt;iframe src="https://codesandbox.io/embed/xenodochial-babbage-tp3us?autoresize=1&amp;fontsize=14&amp;hidenavigation=1&amp;module=%2Fsrc%2Ftype.ts&amp;theme=dark"
+ style="width:100%; height:800px; border:0; border-radius: 4px; overflow:hidden;"
+ title="xenodochial-babbage-tp3us"
+ allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+ &gt;&lt;/iframe&gt;
+&lt;h2 id="代码解析" class=link_owner&gt;
+ 代码解析
+ &lt;a href="#%e4%bb%a3%e7%a0%81%e8%a7%a3%e6%9e%90" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="kr"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;inversify&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;inversify&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;reflect-metadata&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;引入 &lt;code&gt;inversify&lt;/code&gt; 以及 &lt;code&gt;reflect-metadata&lt;/code&gt; 两个包。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;TYPES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 忍者
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Ninja&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 武士刀
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Katana&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 手里剑
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Shuriken&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;定义了类对应的映射，这里定义了三个类，看过火影的应该很容易理解Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)之间的关系。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;hit() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cut!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hit!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;fight() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;sneak() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接着是Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)三个类的实现。其中 &lt;code&gt;Katana&lt;/code&gt; 类实现了 &lt;code&gt;hit&lt;/code&gt; 方法，&lt;code&gt;Shuriken&lt;/code&gt; 实现了 &lt;code&gt;throw&lt;/code&gt; 方法，&lt;code&gt;Ninja&lt;/code&gt; 中定义了两个私有对象 &lt;code&gt;_katana&lt;/code&gt; 和 &lt;code&gt;_shuriken&lt;/code&gt;，并在构造函数之中传入这个两个对象，&lt;code&gt;Ninja&lt;/code&gt; 类中的 &lt;code&gt;fight&lt;/code&gt; 方法中将调用 &lt;code&gt;_katana&lt;/code&gt; 的 &lt;code&gt;hit&lt;/code&gt; 方法，&lt;code&gt;sneak&lt;/code&gt; 方法中将调用 &lt;code&gt;_shuriken&lt;/code&gt; 的 &lt;code&gt;throw&lt;/code&gt; 方法。&lt;/p&gt;</description></item><item><title>对类的支持</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</guid><description>&lt;h1 id="对类的支持" class=link_owner&gt;
+ 对类的支持
+ &lt;a href="#%e5%af%b9%e7%b1%bb%e7%9a%84%e6%94%af%e6%8c%81" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 &lt;code&gt;@injectable&lt;/code&gt;，但不需要使用装饰器 &lt;code&gt;@inject&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;使用类作为服务标识时不需要 &lt;code&gt;@inject&lt;/code&gt; 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;导入 &lt;code&gt;reflect-metadata&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;tsconfig.json&lt;/code&gt; 文件中设置 &lt;code&gt;emitDecoratorMetadata&lt;/code&gt; 为 true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- TODO code not run--&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;Container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;injectable&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;inject&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;inversify&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;hit() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;cut!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;hit!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;fight() {&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;sneak() {&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;30&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;31&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;32&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;33&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;container&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Container&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;34&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;35&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;36&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="具体类型绑定自身" class=link_owner&gt;
+ 具体类型绑定自身
+ &lt;a href="#%e5%85%b7%e4%bd%93%e7%b1%bb%e5%9e%8b%e7%bb%91%e5%ae%9a%e8%87%aa%e8%ba%ab" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;如果要解析的类型是具体类型，绑定注册会感到重复和冗长：&lt;/p&gt;</description></item></channel></rss>

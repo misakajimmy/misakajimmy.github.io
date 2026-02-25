@@ -1,165 +1,461 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MisakaJimmy Blog</title>
-    <link>https://misakaJimmy.github.io/</link>
-    <description>Recent content on MisakaJimmy Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PostgreSQL Docker 启动</title>
-      <link>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</guid>
-      <description>1docker pull bitnami/postgresql:12 docker-compose 1version:&amp;#39;3.5&amp;#39;23services:4postgres:5container_name:postgres_container6image:postgres7environment:8POSTGRES_USER:postgres9POSTGRES_PASSWORD:password10PGDATA:/data/postgres11volumes:12- postgres:/data/postgres13ports:14- &amp;#34;5432:5432&amp;#34;15networks:16- postgres17restart:unless-stopped1819pgadmin:20container_name:pgadmin_container21image:dpage/pgadmin422environment:23PGADMIN_DEFAULT_EMAIL:misakajimmy@gmail.com24PGADMIN_DEFAULT_PASSWORD:admin25PGADMIN_CONFIG_SERVER_MODE:&amp;#39;False&amp;#39;26volumes:27- pgadmin:/root/.pgadmin2829ports:30- &amp;#34;3080:80&amp;#34;31networks:32- postgres33restart:unless-stopped3435networks:36postgres:37driver:bridge3839volumes:40postgres:41pgadmin:</description>
-    </item>
-    
-    <item>
-      <title>Windows PostgreSQL 使用</title>
-      <link>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</guid>
-      <description>直接官网下载安装，安装时记得记下安装路径。
-根目录如下图所示，bin下是 PostgreSQL 的命令行控制程序，pgAdmin4 下是 PostpreSQL 的可视化管理程序。
-添加 bin 到环境变量之中 记下到 bin 文件夹的绝对路径， 我这里是 D:\Program Files\PostgreSQL\12\bin ，添加到系统变量和用户变量的 Path 之中。
-然后打开 Terminal ，输入
-1pg_ctl.exe start -D &amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34; 然后打开 pgAdmin ， 输入 host 和 Password 。
-角色 &amp;quot;postgres&amp;quot; 不存在 Terminal 中出现角色不存在，导致无法正常连接到postgre服务。
-使用管理员权限打开 Powershell ， 输入
-1 pg_ctl.exe register -N &amp;#34;pgsql&amp;#34; -D &amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34; 将 postgresql 注册为服务</description>
-    </item>
-    
-    <item>
-      <title>项目中引入 InversifyJS</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</guid>
-      <description>安装 可以通过 npm 或者 yarn 来引入 InversifyJS：
-1yarn add inversify reflect-metadata InversifyJS 类型定义包含在 inversify npm 包中。InversifyJS 需要 experimentalDecorators、 emitDecoratorMetadata 和 lib 编译选项开启在 tsconfig.json 文件中。1{ 2 &amp;#34;compilerOptions&amp;#34;: { 3 &amp;#34;experimentalDecorators&amp;#34;: true, 4 &amp;#34;emitDecoratorMetadata&amp;#34;: true 5 } 6} InversifyJS 需要一个支持下面特性的现代 JavaScript 引擎：
- Reflect metadata Promise (仅在使用 provider injection 时需要) Proxy (仅在使用 activation handlers 时需要)  如果你的环境不支持其中的特性，那么需要引入 shim 或者 polyfill。
-环境支持和 polyfills InversifyJS 需要一个现代的 JavaScript 引擎，需要支持 Promise、 Map、 Metadata Reflection API 和 Proxy 对象。 如果你的环境不支持这些的化，就需要引入 shim 或者 polyfill。</description>
-    </item>
-    
-    <item>
-      <title>About CUDA</title>
-      <link>https://misakaJimmy.github.io/docs/ops/about-cuda/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/ops/about-cuda/</guid>
-      <description>查看 CUDA 版本  查看文件  查看 CUDA 安装目录下的 vesrion.txt
-通过 nvcc  1nvcc --version </description>
-    </item>
-    
-    <item>
-      <title>InversifyJS 基础演示(TS)</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</guid>
-      <description>代码解析 1import * as inversify from &amp;#39;inversify&amp;#39;; 2import &amp;#39;reflect-metadata&amp;#39;; 引入 inversify 以及 reflect-metadata 两个包。
-1const TYPES = { 2 // 忍者 3 Ninja: &amp;#39;Ninja&amp;#39;, 4 // 武士刀 5 Katana: &amp;#39;Katana&amp;#39;, 6 // 手里剑 7 Shuriken: &amp;#39;Shuriken&amp;#39; 8} 定义了类对应的映射，这里定义了三个类，看过火影的应该很容易理解Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)之间的关系。
-1class Katana { 2 hit() { 3 return &amp;#39;cut!&amp;#39;; 4 } 5} 6 7class Shuriken { 8 throw() { 9 return &amp;#39;hit!&amp;#39;; 10 } 11} 12 13class Ninja { 14 private _katana: Katana; 15 private _shuriken: Shuriken; 16 17 constructor(katana: Katana, shuriken: Shuriken) { 18 this.</description>
-    </item>
-    
-    <item>
-      <title>Yarn</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</guid>
-      <description>安装yarn 下载 nodejs 通过 npm 安装 1npm install -g yarn 查看版本 1yarn --version 设置淘宝源 1yarn config set registry https://registry.npm.taobao.org 2yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass # node-sass 二进制包镜像 3yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ # electron 二进制包镜像 4yarn config set ELECTRON_MIRROR https://cdn.npm.taobao.org/dist/electron/ # electron 二进制包镜像 5yarn config set puppeteer_download_host https://npm.taobao.org/mirrors # puppeteer 二进制包镜像 6yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver # chromedriver 二进制包镜像 7yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver # operadriver 二进制包镜像 8yarn config set phantomjs_cdnurl https://npm.</description>
-    </item>
-    
-    <item>
-      <title>About GPU</title>
-      <link>https://misakaJimmy.github.io/docs/ops/about-gpu/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/ops/about-gpu/</guid>
-      <description>关于显卡驱动 查看显卡型号和驱动版本 查看显卡型号 1lspci | grep -i nvidia 查看驱动版本 1sudo dpkg --list | grep nvidia-* 查看正在使用的显卡驱动所使用的内核版本 1cat /proc/driver/nvidia/version </description>
-    </item>
-    
-    <item>
-      <title>Lerna</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/tools/lerna/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/tools/lerna/</guid>
-      <description>项目链接：github.com/lerna/lernaLerna 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。
-关于 将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。
-为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 Babel, React, Angular, Ember, Meteor, Jest, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。
-Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
-Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 hoist documentation。
-Lerna repo 是什么样的？ 它实际上很简单。您的文件结构如下所示：
-1my-lerna-repo/ 2 package.json 3 packages/ 4 package-1/ 5 package.json 6 package-2/ 7 package.json Lerna 能做什么？ Lerna 中的两个主要命令是 lerna bootstrap 和 lerna publish。</description>
-    </item>
-    
-    <item>
-      <title>对类的支持</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</guid>
-      <description>对类的支持 InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 @injectable，但不需要使用装饰器 @inject。
-使用类作为服务标识时不需要 @inject 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：
- 导入 reflect-metadata 在 tsconfig.json 文件中设置 emitDecoratorMetadata 为 true  1import { Container, injectable, inject } from &amp;#34;inversify&amp;#34;; 2 3@injectable() 4class Katana { 5 public hit() { 6 return &amp;#34;cut!&amp;#34;; 7 } 8} 9 10@injectable() 11class Shuriken { 12 public throw() { 13 return &amp;#34;hit!&amp;#34;; 14 } 15} 16 17@injectable() 18class Ninja implements Ninja { 19 20 private _katana: Katana; 21 private _shuriken: Shuriken; 22 23 public constructor(katana: Katana, shuriken: Shuriken) { 24 this.</description>
-    </item>
-    
-    <item>
-      <title>Nvidia smi</title>
-      <link>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/ops/nvidia-smi/</guid>
-      <description>nvidia-smi mig 此章节源自于 nvidia-smi mig --help，在此基础上进行汉化批注以及添加示例。mig -- Multi Instance GPU management.
-多实例 GPU 管理。
-Usage:
-1nvidia-smi mig - [options] Options include:
- [-h | --help]:  Display help information.
-显示帮助信息
- [-i | --id]:  枚举索引、PCI 总线 ID 或 UUID。当拥有多个设备时，使用逗号分隔。
- [-gi | --gpu-instance-id]:  GPU 实例 ID。当拥有多个 GPU 实例时，使用逗号分隔。
- [-ci | --compute-instance-id]:  计算实例 ID。当拥有多个计算实例时使用逗号分隔。
- [-lgip | --list-gpu-instance-profiles]:  列出支持的 GPU 实例配置文件。使用 -i 可以将此命令重定向到特定的 GPU。</description>
-    </item>
-    
-    <item>
-      <title>Symbol</title>
-      <link>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</guid>
-      <description>Symbol 原文链接：developer.mozilla.orgsymbol 是一种基本数据类型 （primitive data type）。Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：&amp;quot;new Symbol()&amp;quot;。
-语法 1Symbol([description]) 参数  description 可选  可选的，字符串类型。对symbol的描述，可用于调试但不是访问symbol本身。
-描述 直接使用Symbol()创建新的symbol类型，并用一个可选的字符串作为其描述。
-1var sym1 = Symbol(); 2var sym2 = Symbol(&amp;#39;foo&amp;#39;); 3var sym3 = Symbol(&amp;#39;foo&amp;#39;); 上面的代码创建了三个新的symbol类型。 注意，Symbol(&amp;quot;foo&amp;quot;) 不会强制将字符串 “foo” 转换成symbol类型。它每次都会创建一个新的 symbol类型：
-1Symbol(&amp;#34;foo&amp;#34;) === Symbol(&amp;#34;foo&amp;#34;); // false 下面带有 new 运算符的语法将抛出 TypeError 错误：
-1var sym = new Symbol(); // TypeError 这会阻止创建一个显式的 Symbol 包装器对象而不是一个 Symbol 值。围绕原始数据类型创建一个显式包装器对象从 ECMAScript 6 开始不再被支持。 然而，现有的原始包装器对象，如 new Boolean、new String以及new Number，因为遗留原因仍可被创建。
-如果你真的想创建一个 Symbol 包装器对象 (Symbol wrapper object)，你可以使用 Object() 函数：</description>
-    </item>
-    
-    <item>
-      <title>HGX A100 8-GPU install</title>
-      <link>https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/ops/hgx_a100_8-gpu_install/</guid>
-      <description>安装 CUDA 没啥好说的，按照这份文档里面的代码直接跑就行了，因为里面一些链接可能会变动，这里就不再写一遍了。特别注意的的是，在第五步 sudo apt-get -y install cuda-drivers 时，建议加上 --no-install-recommends ，这样可以避免安装图形化界面。
-安装 Fabric Manager 参考文档简介 NVIDIA DGX™ A100 和 NVIDIA HGX™ A100 8-GPU 服务器系统使用 NVIDIA® NVLink® 交换机 (NVIDIA® NVSwitch™)，可通过 NVLink 结构实现全对全通信。DGX A100 和 HGX A100 8-GPU 系统均由一个 GPU 基板、八个 NVIDIA A100 GPU 和六个 NVSwitch 组成。每个 A100 GPU 都有两个 NVLink 连接到同一 GPU 基板上的每个 NVSwitch。此外，可以将两个 GPU 基板连接在一起以构建一个 16 GPU 系统。在两个 GPU 基板之间，唯一的 NVLink 连接在 NVSwitch 之间，每个交换机从一个 GPU 基板连接到另一个 GPU 基板上的单个 NVSwitch，总共有 16 个 NVLink 连接。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid>
-      <description>install docker-compose v2 官方 github
-1wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64 2sudo chmod a+x ./docker-compose-linux-amd64 3mkdir ~/.docker/cli-plugins 4sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose </description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/</link><description>Recent content on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL Docker 启动</title><link>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/database/postgresql/postgresql-docker/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull bitnami/postgresql:12
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="docker-compose" class=link_owner&gt;
+ docker-compose
+ &lt;a href="#docker-compose" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;3.5&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;postgres_container&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;POSTGRES_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;password&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PGDATA&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/data/postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgres:/data/postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s2"&gt;&amp;#34;5432:5432&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;networks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;unless-stopped&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;pgadmin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;pgadmin_container&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;dpage/pgadmin4&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PGADMIN_DEFAULT_EMAIL&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;misakajimmy@gmail.com&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PGADMIN_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;admin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;PGADMIN_CONFIG_SERVER_MODE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;False&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;pgadmin:/root/.pgadmin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;30&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s2"&gt;&amp;#34;3080:80&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;31&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;networks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;32&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;33&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;unless-stopped&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;34&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;35&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;networks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;36&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;37&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;driver&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;bridge&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;38&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;39&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;40&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;41&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;pgadmin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Windows PostgreSQL 使用</title><link>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/database/postgresql/windows-postgresql-usage/</guid><description>&lt;p&gt;直接官网下载安装，安装时记得记下安装路径。&lt;/p&gt;
+&lt;p&gt;根目录如下图所示，bin下是 &lt;code&gt;PostgreSQL&lt;/code&gt; 的命令行控制程序，&lt;code&gt;pgAdmin4&lt;/code&gt; 下是 &lt;code&gt;PostpreSQL&lt;/code&gt; 的可视化管理程序。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://misakaJimmy.github.io/images/Windows-PostgreSQL-usage/assets/image-20210715095216419.png" alt="image-20210715095216419"&gt;&lt;/p&gt;
+&lt;h2 id="添加-bin-到环境变量之中" class=link_owner&gt;
+ 添加 bin 到环境变量之中
+ &lt;a href="#%e6%b7%bb%e5%8a%a0-bin-%e5%88%b0%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e4%b9%8b%e4%b8%ad" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;记下到 bin 文件夹的绝对路径， 我这里是 &lt;code&gt;D:\Program Files\PostgreSQL\12\bin&lt;/code&gt; ，添加到系统变量和用户变量的 &lt;code&gt;Path&lt;/code&gt; 之中。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://misakaJimmy.github.io/images/Windows-PostgreSQL-usage/assets/image-20210715100017968.png" alt="image-20210715100017968"&gt;&lt;/p&gt;
+&lt;p&gt;然后打开 Terminal ，输入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;pg_ctl&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="py"&gt;exe&lt;/span&gt; &lt;span class="nb"&gt;start &lt;/span&gt;&lt;span class="n"&gt;-D&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后打开 &lt;code&gt;pgAdmin&lt;/code&gt; ， 输入 host 和 Password 。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://misakaJimmy.github.io/images/Windows-PostgreSQL-usage/assets/image-20210715115840448.png" alt="image-20210715115840448"&gt;&lt;/p&gt;
+&lt;h2 id="角色-postgres-不存在" class=link_owner&gt;
+ 角色 &amp;quot;postgres&amp;quot; 不存在
+ &lt;a href="#%e8%a7%92%e8%89%b2-postgres-%e4%b8%8d%e5%ad%98%e5%9c%a8" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Terminal 中出现角色不存在，导致无法正常连接到postgre服务。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://misakaJimmy.github.io/images/Windows-PostgreSQL-usage/assets/image-20210715115940981.png" alt="image-20210715115940981"&gt;&lt;/p&gt;
+&lt;p&gt;使用管理员权限打开 &lt;code&gt;Powershell&lt;/code&gt; ， 输入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;pg_ctl&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="py"&gt;exe&lt;/span&gt; &lt;span class="n"&gt;register&lt;/span&gt; &lt;span class="n"&gt;-N&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;pgsql&amp;#34;&lt;/span&gt; &lt;span class="n"&gt;-D&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;D:\Program Files\PostgreSQL\12\data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将 &lt;code&gt;postgresql&lt;/code&gt; 注册为服务&lt;/p&gt;</description></item><item><title>项目中引入 InversifyJS</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/install/</guid><description>&lt;h2 id="安装" class=link_owner&gt;
+ 安装
+ &lt;a href="#%e5%ae%89%e8%a3%85" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;可以通过 &lt;code&gt;npm&lt;/code&gt; 或者 &lt;code&gt;yarn&lt;/code&gt; 来引入 &lt;code&gt;InversifyJS&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yarn add inversify reflect-metadata
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="tip tip_warning"&gt;
+ InversifyJS 类型定义包含在 inversify npm 包中。InversifyJS 需要 experimentalDecorators、 emitDecoratorMetadata 和 lib 编译选项开启在 tsconfig.json 文件中。
+&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;compilerOptions&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;experimentalDecorators&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;emitDecoratorMetadata&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;InversifyJS 需要一个支持下面特性的现代 JavaScript 引擎：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://rbuckton.github.io/reflect-metadata/"&gt;Reflect metadata&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;Promise&lt;/a&gt; (仅在使用 &lt;a href="https://github.com/inversify/InversifyJS#injecting-a-provider-asynchronous-factory"&gt;provider injection&lt;/a&gt; 时需要)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"&gt;Proxy&lt;/a&gt; (仅在使用 &lt;a href="https://github.com/inversify/InversifyJS/blob/master/wiki/activation_handler.md"&gt;activation handlers&lt;/a&gt; 时需要)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你的环境不支持其中的特性，那么需要引入 shim 或者 polyfill。&lt;/p&gt;
+&lt;h2 id="环境支持和-polyfills" class=link_owner&gt;
+ 环境支持和 polyfills
+ &lt;a href="#%e7%8e%af%e5%a2%83%e6%94%af%e6%8c%81%e5%92%8c-polyfills" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;InversifyJS 需要一个现代的 JavaScript 引擎，需要支持 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;Promise&lt;/a&gt;、 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"&gt;Map&lt;/a&gt;、 &lt;a href="https://rbuckton.github.io/reflect-metadata/"&gt;Metadata Reflection API&lt;/a&gt; 和 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"&gt;Proxy&lt;/a&gt; 对象。 如果你的环境不支持这些的化，就需要引入 shim 或者 polyfill。&lt;/p&gt;</description></item><item><title>InversifyJS 基础演示(TS)</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/base-ts-example/</guid><description>&lt;iframe src="https://codesandbox.io/embed/xenodochial-babbage-tp3us?autoresize=1&amp;fontsize=14&amp;hidenavigation=1&amp;module=%2Fsrc%2Ftype.ts&amp;theme=dark"
+ style="width:100%; height:800px; border:0; border-radius: 4px; overflow:hidden;"
+ title="xenodochial-babbage-tp3us"
+ allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+ &gt;&lt;/iframe&gt;
+&lt;h2 id="代码解析" class=link_owner&gt;
+ 代码解析
+ &lt;a href="#%e4%bb%a3%e7%a0%81%e8%a7%a3%e6%9e%90" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="kr"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;inversify&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;inversify&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;reflect-metadata&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;引入 &lt;code&gt;inversify&lt;/code&gt; 以及 &lt;code&gt;reflect-metadata&lt;/code&gt; 两个包。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;TYPES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 忍者
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Ninja&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 武士刀
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Katana&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// 手里剑
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Shuriken&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;定义了类对应的映射，这里定义了三个类，看过火影的应该很容易理解Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)之间的关系。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;hit() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cut!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hit!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;fight() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;sneak() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接着是Ninja(忍者)、Katana(武士刀)和Shuriken(手里剑)三个类的实现。其中 &lt;code&gt;Katana&lt;/code&gt; 类实现了 &lt;code&gt;hit&lt;/code&gt; 方法，&lt;code&gt;Shuriken&lt;/code&gt; 实现了 &lt;code&gt;throw&lt;/code&gt; 方法，&lt;code&gt;Ninja&lt;/code&gt; 中定义了两个私有对象 &lt;code&gt;_katana&lt;/code&gt; 和 &lt;code&gt;_shuriken&lt;/code&gt;，并在构造函数之中传入这个两个对象，&lt;code&gt;Ninja&lt;/code&gt; 类中的 &lt;code&gt;fight&lt;/code&gt; 方法中将调用 &lt;code&gt;_katana&lt;/code&gt; 的 &lt;code&gt;hit&lt;/code&gt; 方法，&lt;code&gt;sneak&lt;/code&gt; 方法中将调用 &lt;code&gt;_shuriken&lt;/code&gt; 的 &lt;code&gt;throw&lt;/code&gt; 方法。&lt;/p&gt;</description></item><item><title>Yarn</title><link>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/tools/yarn/</guid><description>&lt;h2 id="安装yarn" class=link_owner&gt;
+ 安装yarn
+ &lt;a href="#%e5%ae%89%e8%a3%85yarn" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="下载-nodejs-通过-npm-安装" class=link_owner&gt;
+ 下载 &lt;code&gt;nodejs&lt;/code&gt; 通过 &lt;code&gt;npm&lt;/code&gt; 安装
+ &lt;a href="#%e4%b8%8b%e8%bd%bd-nodejs-%e9%80%9a%e8%bf%87-npm-%e5%ae%89%e8%a3%85" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;npm install -g yarn
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="查看版本" class=link_owner&gt;
+ 查看版本
+ &lt;a href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yarn --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="设置淘宝源" class=link_owner&gt;
+ 设置淘宝源
+ &lt;a href="#%e8%ae%be%e7%bd%ae%e6%b7%98%e5%ae%9d%e6%ba%90" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; registry https://registry.npm.taobao.org
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; sass_binary_site https://npm.taobao.org/mirrors/node-sass &lt;span class="c1"&gt;# node-sass 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; electron_mirror https://npm.taobao.org/mirrors/electron/ &lt;span class="c1"&gt;# electron 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; ELECTRON_MIRROR https://cdn.npm.taobao.org/dist/electron/ &lt;span class="c1"&gt;# electron 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; puppeteer_download_host https://npm.taobao.org/mirrors &lt;span class="c1"&gt;# puppeteer 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver &lt;span class="c1"&gt;# chromedriver 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver &lt;span class="c1"&gt;# operadriver 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs &lt;span class="c1"&gt;# phantomjs 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; selenium_cdnurl https://npm.taobao.org/mirrors/selenium &lt;span class="c1"&gt;# selenium 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;yarn config &lt;span class="nb"&gt;set&lt;/span&gt; node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector &lt;span class="c1"&gt;# node-inspector 二进制包镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="yarn-与-npm-命令对比" class=link_owner&gt;
+ &lt;code&gt;yarn&lt;/code&gt; 与 &lt;code&gt;npm&lt;/code&gt; 命令对比
+ &lt;a href="#yarn-%e4%b8%8e-npm-%e5%91%bd%e4%bb%a4%e5%af%b9%e6%af%94" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;npm&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;yarn&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;注释&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm init&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn init&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;初始化项目&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装全部依赖&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install react --save&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn add react&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装某个依赖，保存到 dependencies&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm uninstall react --save&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn remove react&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;移除某个依赖&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install react --save-dev&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn add react --dev&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装某依赖,保存到 devDependencies&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm update [package] --save&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn upgrade [package]&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;更新生产环境某个依赖包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install axios --global&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn global add axios&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;全局安装某个依赖&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install --save axios vue-axios&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn add axios vue-axios&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;同时下载多个依赖包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm install [package]@[version]&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn add [package]@[version]&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装指定版本的包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;npm rebuild&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;yarn install --force&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;重新下载所有包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="npm---save-和-npm---save-dev-区别" class=link_owner&gt;
+ &lt;code&gt;npm --save&lt;/code&gt; 和 &lt;code&gt;npm --save-dev&lt;/code&gt; 区别
+ &lt;a href="#npm---save-%e5%92%8c-npm---save-dev-%e5%8c%ba%e5%88%ab" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;npm5版本之前，必须要加上--save，才会将包记录到package.json
+npm5版本之后开始，--save是默认值了，可以省略不写&lt;/p&gt;</description></item><item><title>Lerna</title><link>https://misakaJimmy.github.io/docs/frontend/tools/lerna/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/tools/lerna/</guid><description>&lt;div class="tip"&gt;
+ 项目链接：&lt;a href="https://github.com/lerna/lerna"&gt;github.com/lerna/lerna&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/lerna/lerna"&gt;Lerna&lt;/a&gt; 是一个管理工具，用于管理包含多个软件包（package）的 JavaScript 项目。&lt;/p&gt;
+&lt;h2 id="关于" class=link_owner&gt;
+ 关于
+ &lt;a href="#%e5%85%b3%e4%ba%8e" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;将大型代码仓库分割成多个独立版本化的 软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且， 跨越多个代码仓库的测试将迅速变得非常复杂。&lt;/p&gt;
+&lt;p&gt;为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。但是，例如 &lt;a href="https://github.com/babel/babel/tree/master/packages"&gt;Babel&lt;/a&gt;, &lt;a href="https://github.com/facebook/react/tree/master/packages"&gt;React&lt;/a&gt;, &lt;a href="https://github.com/angular/angular/tree/master/modules"&gt;Angular&lt;/a&gt;,
+&lt;a href="https://github.com/emberjs/ember.js/tree/master/packages"&gt;Ember&lt;/a&gt;, &lt;a href="https://github.com/meteor/meteor/tree/devel/packages"&gt;Meteor&lt;/a&gt;, &lt;a href="https://github.com/facebook/jest/tree/master/packages"&gt;Jest&lt;/a&gt;, 等项目以及许多其他项目则是在 一个代码仓库中包含了多个软件包（package）并进行开发。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lerna is a tool that optimizes the workflow around managing multi-package
+repositories with git and npm.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Lerna 还可以减少开发和构建环境中大量包副本的时间和空间需求——这通常是将项目分成许多单独的 NPM 包的缺点。有关详细信息，请参阅 &lt;a href="doc/hoist.md"&gt;hoist documentation&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="lerna-repo-是什么样的" class=link_owner&gt;
+ Lerna repo 是什么样的？
+ &lt;a href="#lerna-repo-%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;它实际上很简单。您的文件结构如下所示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;my-lerna-repo/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; packages/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; package-1/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; package-2/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt; package.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="lerna-能做什么" class=link_owner&gt;
+ Lerna 能做什么？
+ &lt;a href="#lerna-%e8%83%bd%e5%81%9a%e4%bb%80%e4%b9%88" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Lerna 中的两个主要命令是 &lt;code&gt;lerna bootstrap&lt;/code&gt; 和 &lt;code&gt;lerna publish&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>对类的支持</title><link>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/inversifyjs/classes-as-id/</guid><description>&lt;h1 id="对类的支持" class=link_owner&gt;
+ 对类的支持
+ &lt;a href="#%e5%af%b9%e7%b1%bb%e7%9a%84%e6%94%af%e6%8c%81" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;InversifyJS 允许类对其他类的直接依赖。这样做时，您需要使用装饰器 &lt;code&gt;@injectable&lt;/code&gt;，但不需要使用装饰器 &lt;code&gt;@inject&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;使用类作为服务标识时不需要 &lt;code&gt;@inject&lt;/code&gt; 装饰器。因为编译器能为我们生成的元数据。但是别忘记下面的配置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;导入 &lt;code&gt;reflect-metadata&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;tsconfig.json&lt;/code&gt; 文件中设置 &lt;code&gt;emitDecoratorMetadata&lt;/code&gt; 为 true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- TODO code not run--&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Typescript" data-lang="Typescript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;Container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;injectable&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;inject&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;inversify&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Katana&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;hit() {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;cut!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Shuriken&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;hit!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;@injectable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Ninja&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;_shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;katana&lt;/span&gt;: &lt;span class="kt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;: &lt;span class="kt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;katana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;shuriken&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;fight() {&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_katana&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;sneak() {&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_shuriken&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;throw&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;30&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;31&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;32&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;33&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;container&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Container&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;34&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Ninja&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;35&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Katana&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;36&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Shuriken&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="具体类型绑定自身" class=link_owner&gt;
+ 具体类型绑定自身
+ &lt;a href="#%e5%85%b7%e4%bd%93%e7%b1%bb%e5%9e%8b%e7%bb%91%e5%ae%9a%e8%87%aa%e8%ba%ab" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;如果要解析的类型是具体类型，绑定注册会感到重复和冗长：&lt;/p&gt;</description></item><item><title>Symbol</title><link>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/basic/symbol/</guid><description>&lt;h1 id="symbol" class=link_owner&gt;
+ Symbol
+ &lt;a href="#symbol" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;div class="tip"&gt;
+ 原文链接：&lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol"&gt;developer.mozilla.org&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;symbol&lt;/strong&gt; 是一种基本数据类型 （&lt;a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Primitive"&gt;primitive data type&lt;/a&gt;）。&lt;code&gt;Symbol()&lt;/code&gt;函数会返回&lt;strong&gt;symbol&lt;/strong&gt;类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的symbol注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法：&amp;quot;&lt;code&gt;new Symbol()&lt;/code&gt;&amp;quot;。&lt;/p&gt;
+&lt;iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/symbol-constructor.html" 
+style="width:100%; height:700px; border:0; border-radius: 4px; overflow:hidden;"&gt; &lt;/iframe&gt;
+&lt;h2 id="语法" class=link_owner&gt;
+ 语法
+ &lt;a href="#%e8%af%ad%e6%b3%95" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nx"&gt;description&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="参数" class=link_owner&gt;
+ 参数
+ &lt;a href="#%e5%8f%82%e6%95%b0" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;description&lt;/code&gt; &lt;code&gt;可选&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可选的，字符串类型。对symbol的描述，可用于调试但不是访问symbol本身。&lt;/p&gt;
+&lt;h2 id="描述" class=link_owner&gt;
+ 描述
+ &lt;a href="#%e6%8f%8f%e8%bf%b0" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;直接使用&lt;code&gt;Symbol()&lt;/code&gt;创建新的symbol类型，并用一个可选的字符串作为其描述。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面的代码创建了三个新的symbol类型。 注意，&lt;code&gt;Symbol(&amp;quot;foo&amp;quot;)&lt;/code&gt; 不会强制将字符串 “foo” 转换成symbol类型。它每次都会创建一个新的 symbol类型：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下面带有 &lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new"&gt;new&lt;/a&gt; 运算符的语法将抛出 &lt;a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError"&gt;TypeError&lt;/a&gt; 错误：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Javascript" data-lang="Javascript"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sym&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="c1"&gt;// TypeError
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会阻止创建一个显式的 Symbol 包装器对象而不是一个 Symbol 值。围绕原始数据类型创建一个显式包装器对象从 ECMAScript 6 开始不再被支持。 然而，现有的原始包装器对象，如 &lt;code&gt;new Boolean&lt;/code&gt;、&lt;code&gt;new String&lt;/code&gt;以及&lt;code&gt;new Number&lt;/code&gt;，因为遗留原因仍可被创建。&lt;/p&gt;</description></item><item><title/><link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid><description>&lt;h1 id="install-docker-compose-v2" class=link_owner&gt;
+ install docker-compose v2
+ &lt;a href="#install-docker-compose-v2" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;官方 &lt;a href="https://github.com/docker/compose-cli"&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;sudo chmod a+x ./docker-compose-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;mkdir ~/.docker/cli-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

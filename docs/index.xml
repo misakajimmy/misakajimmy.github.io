@@ -1,20 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Lifelong Learning on MisakaJimmy Blog</title>
-    <link>https://misakaJimmy.github.io/docs/</link>
-    <description>Recent content in Lifelong Learning on MisakaJimmy Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://misakaJimmy.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid>
-      <description>install docker-compose v2 官方 github
-1wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64 2sudo chmod a+x ./docker-compose-linux-amd64 3mkdir ~/.docker/cli-plugins 4sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose </description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lifelong Learning on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/</link><description>Recent content in Lifelong Learning on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid><description>&lt;h1 id="install-docker-compose-v2" class=link_owner&gt;
+ install docker-compose v2
+ &lt;a href="#install-docker-compose-v2" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;官方 &lt;a href="https://github.com/docker/compose-cli"&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;sudo chmod a+x ./docker-compose-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;mkdir ~/.docker/cli-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>
