@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/ai/</link><description>Recent content in AI on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw</title><link>https://misakaJimmy.github.io/docs/ai/openclaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/ai/openclaw/</guid><description>&lt;h1 id="openclaw-与当前大模型发展阶段讨论总结" class=link_owner&gt;
+ OpenClaw 与当前大模型发展阶段讨论总结
+ &lt;a href="#openclaw-%e4%b8%8e%e5%bd%93%e5%89%8d%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%8f%91%e5%b1%95%e9%98%b6%e6%ae%b5%e8%ae%a8%e8%ae%ba%e6%80%bb%e7%bb%93" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="1-openclaw-为什么突然火起来" class=link_owner&gt;
+ 1. OpenClaw 为什么突然火起来
+ &lt;a href="#1-openclaw-%e4%b8%ba%e4%bb%80%e4%b9%88%e7%aa%81%e7%84%b6%e7%81%ab%e8%b5%b7%e6%9d%a5" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;OpenClaw 最近在 AI 社区受到关注，主要原因是它将 AI 从“对话工具”扩展为“可执行任务的智能体系统”。&lt;/p&gt;
+&lt;p&gt;核心变化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;从 Chatbot → Agent&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;AI 不只是回答问题，而是可以执行任务&lt;/li&gt;
+&lt;li&gt;可以自动调用工具、运行脚本、访问 API&lt;/li&gt;
+&lt;li&gt;可以持续运行而不是一次请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例能力：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动整理邮件&lt;/li&gt;
+&lt;li&gt;自动监控网站&lt;/li&gt;
+&lt;li&gt;自动生成报告&lt;/li&gt;
+&lt;li&gt;自动执行代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此很多人称它为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“数字员工框架” 或 “AI Agent 操作系统”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h1 id="2-openclaw-的主要技术创新点" class=link_owner&gt;
+ 2. OpenClaw 的主要技术创新点
+ &lt;a href="#2-openclaw-%e7%9a%84%e4%b8%bb%e8%a6%81%e6%8a%80%e6%9c%af%e5%88%9b%e6%96%b0%e7%82%b9" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;OpenClaw 的创新不在单一技术，而在 &lt;strong&gt;系统架构整合&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;核心能力包括：&lt;/p&gt;
+&lt;h2 id="21-agent-runtime持续运行的-ai" class=link_owner&gt;
+ 2.1 Agent Runtime（持续运行的 AI）
+ &lt;a href="#21-agent-runtime%e6%8c%81%e7%bb%ad%e8%bf%90%e8%a1%8c%e7%9a%84-ai" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;传统 LLM：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;请求 → 回复 → 结束
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenClaw：&lt;/p&gt;</description></item></channel></rss>
