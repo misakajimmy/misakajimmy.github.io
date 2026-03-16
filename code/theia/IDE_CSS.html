@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>AI IDE Chat Demo</title>
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --bg-panel: #020617;
+      --bg-msg-ai: #1e293b;
+      --bg-msg-user: #0f766e;
+      --bg-highlight: #facc15;
+      --text-normal: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --danger: #fb923c;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
+      color: var(--text-normal);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .ide-shell {
+      display: flex;
+      height: 90vh;
+      width: 960px;
+      max-width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, #020617, #020617 40%, #0f172a);
+    }
+
+    .sidebar {
+      width: 56px;
+      background: #020617;
+      border-right: 1px solid rgba(148, 163, 184, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 12px;
+      gap: 12px;
+    }
+
+    .sidebar-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.1s;
+      font-size: 16px;
+    }
+
+    .sidebar-icon:hover {
+      background: rgba(148, 163, 184, 0.16);
+      color: var(--text-normal);
+      transform: translateY(-1px);
+    }
+
+    .sidebar-icon.active {
+      background: rgba(56, 189, 248, 0.18);
+      color: var(--accent);
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-main);
+    }
+
+    .topbar {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      background: linear-gradient(to right, #020617, #020617 40%, #0f172a);
+      font-size: 12px;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4b5563; /* idle */
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .status-dot.thinking {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .status-dot.risky {
+      background: var(--danger);
+      box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.2);
+    }
+
+    .status-text {
+      color: var(--text-muted);
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .editor {
+      flex: 1;
+      border-right: 1px solid rgba(148, 163, 184, 0.3);
+      background: #020617;
+      padding: 10px 0 10px 48px;
+      position: relative;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #e5e7eb;
+      overflow: auto;
+    }
+
+    .line {
+      position: relative;
+      padding-right: 12px;
+      padding-left: 4px;
+    }
+
+    .line-number {
+      position: absolute;
+      left: -36px;
+      width: 32px;
+      text-align: right;
+      color: #4b5563;
+      padding-right: 4px;
+      user-select: none;
+    }
+
+    .line.current {
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .line.highlight {
+      background: rgba(250, 204, 21, 0.1);
+      transition: background 0.6s ease-out;
+    }
+
+    .line.highlight.fade-out {
+      background: transparent;
+    }
+
+    .chat {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-panel);
+      border-left: 1px solid rgba(15, 23, 42, 1);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      scroll-behavior: smooth;
+      padding-bottom: 40px; /* 预留空间，避免最后一条顶到边 */
+      scroll-margin-bottom: 40px;
+    }
+
+    .msg {
+      max-width: 100%;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background: rgba(15, 118, 110, 0.9);
+    }
+
+    .msg.ai {
+      align-self: flex-start;
+      background: var(--bg-msg-ai);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .msg.ai.pending {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .msg.ai .code {
+      display: block;
+      margin-top: 4px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 12px;
+    }
+
+    .chat-input {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(to top, #020617, #020617 60%, #0f172a);
+    }
+
+    .chat-input textarea {
+      flex: 1;
+      resize: none;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #020617;
+      color: var(--text-normal);
+      padding: 6px 8px;
+      font-size: 13px;
+      line-height: 1.4;
+      max-height: 72px;
+    }
+
+    .chat-input button {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #020617;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
+      transition: background 0.15s ease, transform 0.1s;
+    }
+
+    .chat-input button:hover {
+      background: #0ea5e9;
+      transform: translateY(-1px);
+    }
+
+    .chat-input button:active {
+      transform: translateY(0);
+    }
+
+    .ai-typing::after {
+      content: "";
+      display: inline-block;
+      width: 1ch;
+      height: 1em;
+      background-color: currentColor;
+      margin-left: 2px;
+      animation: caret-blink 1s steps(1) infinite;
+    }
+
+    @keyframes caret-blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ide-shell">
+    <div class="sidebar">
+      <div class="sidebar-icon active">≡</div>
+      <div class="sidebar-icon">{ }</div>
+      <div class="sidebar-icon">⚙</div>
+    </div>
+    <div class="main">
+      <div class="topbar">
+        <div class="status-indicator">
+          <span id="status-dot" class="status-dot"></span>
+          <span id="status-text" class="status-text">Idle</span>
+        </div>
+        <div class="status-text">app.tsx — AI IDE Demo</div>
+      </div>
+      <div class="content">
+        <div class="editor" id="editor">
+          <div class="line">
+            <span class="line-number">1</span>
+            <span>function App() {</span>
+          </div>
+          <div class="line">
+            <span class="line-number">2</span>
+            <span>  const [value, setValue] = useState("&quot;");</span>
+          </div>
+          <div class="line current" id="line-insert">
+            <span class="line-number">3</span>
+            <span>// 光标在这里，等待 AI 补全...</span>
+          </div>
+          <div class="line">
+            <span class="line-number">4</span>
+            <span>  return (&lt;Editor value={value} onChange={setValue} /&gt;);</span>
+          </div>
+          <div class="line">
+            <span class="line-number">5</span>
+            <span>}</span>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-messages" id="messages">
+            <div class="msg ai">
+              嗨，我是内嵌在 IDE 里的 AI 助手，可以帮你补全和重构这段代码。
+            </div>
+            <div class="msg user">
+              帮我把第三行改成用 async 加载初始值，并解释一下。
+            </div>
+            <div class="msg ai pending ai-typing" id="pending-msg">
+              正在思考合适的改法...
+            </div>
+          </div>
+          <div class="chat-input">
+            <textarea rows="1" placeholder="试着问：帮我优化这段状态管理代码"></textarea>
+            <button type="button" id="send-btn">
+              发送
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pending = document.getElementById("pending-msg");
+    const messages = document.getElementById("messages");
+    const statusDot = document.getElementById("status-dot");
+    const statusText = document.getElementById("status-text");
+    const lineInsert = document.getElementById("line-insert");
+
+    function simulateAI() {
+      statusDot.classList.add("thinking");
+      statusText.textContent = "Thinking...";
+
+      const fullText = "可以把 state 初始化改成从异步接口加载，例如：";
+      let i = 0;
+      pending.textContent = "";
+      pending.classList.add("ai-typing");
+
+      function step() {
+        if (i <= fullText.length) {
+          pending.textContent = fullText.slice(0, i);
+          i++;
+          messages.scrollTop = messages.scrollHeight; // 主动滚动到底部
+          requestAnimationFrame(step);
+        } else {
+          // 完成后移除打字机效果，并追加代码块
+          pending.classList.remove("ai-typing", "pending");
+          pending.classList.add("msg-final");
+          const code = document.createElement("span");
+          code.className = "code";
+          code.textContent = "useEffect(() => {\n  fetchInitial().then(setValue);\n}, []);";
+          pending.appendChild(code);
+
+          // 高亮编辑器中插入位置
+          lineInsert.classList.add("highlight");
+          setTimeout(() => {
+            lineInsert.classList.add("fade-out");
+          }, 800);
+
+          statusDot.classList.remove("thinking");
+          statusText.textContent = "Idle";
+        }
+      }
+
+      step();
+    }
+
+    // 简单模拟一次“加载完成后自动开始打字”的效果
+    window.addEventListener("load", () => {
+      setTimeout(simulateAI, 600);
+    });
+  </script>
+</body>
+</html>
