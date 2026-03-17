@@ -856,7 +856,6 @@
  &lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h2&gt;
-&lt;p&gt;可以先用一句话概括 Theia 的思路：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Theia 在自己的前端/后端之上，再加了一层 VS Code 风格的 Extension Host（由 &lt;code&gt;plugin-ext&lt;/code&gt; / &lt;code&gt;plugin-ext-vscode&lt;/code&gt; 这块负责），然后通过一个 &lt;code&gt;vscode&lt;/code&gt; 兼容 API 和消息通道，把 VS Code 插件“骗”成它们以为自己跑在 VS Code 里。&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
