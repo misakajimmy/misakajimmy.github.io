@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap for search engines
+Sitemap: https://misakajimmy.github.io/sitemap.xml
+
