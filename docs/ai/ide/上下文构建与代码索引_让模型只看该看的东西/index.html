@@ -40,7 +40,7 @@
 符号索引：
 把所有函数/类/方法/变量的定义位置、类型信息、引用关系存起来； 快速回答“某个符号在哪里定义/被用过”。 文档/注释索引：
 把注释和文档内容按文件/段落切块； 支持按关键字或语义检索。 语义向量索引（Embedding Index）：
-把代码片段（函数/类/文件片段）编码成向量； 给定一个查询（用户问题、当前函数片段），找“语义上最接近”的若干块。 这三类索引可以结合使用："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇单独拎出“给模型喂什么”这个问题：如何在一个动辄上万文件的代码库里，选出几 KB～几十 KB 的上下文给模型看，又尽量不漏掉关键信息。
+把代码片段（函数/类/文件片段）编码成向量； 给定一个查询（用户问题、当前函数片段），找“语义上最接近”的若干块。 这三类索引可以结合使用："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇单独拎出“给模型喂什么”这个问题：如何在一个动辄上万文件的代码库里，选出几 KB～几十 KB 的上下文给模型看，又尽量不漏掉关键信息。
 为什么“上下文选择”比模型本身还重要？ 在 IDE 场景下，模型的输入窗口再大也是有限的：
 当前文件几百行代码； 一堆相关的类型/接口定义； 周边调用方/被调用方的片段； 再加上指令和系统提示，很容易就把 prompt 撑满。 如果不做选择，常见问题有：
 给了大量无关代码，真正相关的片段挤不进来； 上下文太“稀释”，模型产生的建议变成泛泛而谈； 成本和延迟被无谓放大。 所以一个实用的 AI IDE 助手，通常会把很大一块工程精力放在“上下文构建”和“代码索引”上。

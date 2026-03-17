@@ -31,7 +31,7 @@ to、toSelf、toConstantValue、toDynamicValue、toFactory、toProvider，
 1container.bind<WorkspaceService>(WorkspaceService).to(WorkspaceService); 只是更简洁一些。
 在 Theia 里，经常会看到先用 toSelf() 绑定自身，再通过 toService() 暴露为某个接口的实现：
 1bind(MyContribution).toSelf().inSingletonScope(); 2bind(FrontendApplicationContribution).toService(MyContribution); 这表示：
-Container 里有一个单例的 MyContribution； 任何地方如果注入 FrontendApplicationContribution[]，会拿到这个 MyContribution 实例作为其中一员。 3. toConstantValue：绑定常量/配置/单例对象 有些东西你并不希望容器帮你 new，而是希望直接把一个现成的值塞进容器，例如配置对象、全局常量等："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇专门把 bind() 的几种常见变体过一遍：
+Container 里有一个单例的 MyContribution； 任何地方如果注入 FrontendApplicationContribution[]，会拿到这个 MyContribution 实例作为其中一员。 3. toConstantValue：绑定常量/配置/单例对象 有些东西你并不希望容器帮你 new，而是希望直接把一个现成的值塞进容器，例如配置对象、全局常量等："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇专门把 bind() 的几种常见变体过一遍：
 to、toSelf、toConstantValue、toDynamicValue、toFactory、toProvider，
 并顺带聊聊它们在 Theia 这种长跑型应用里的典型用法。
 1. to：最常见的“接口 → 实现类”绑定 这是你最常见到的形式：

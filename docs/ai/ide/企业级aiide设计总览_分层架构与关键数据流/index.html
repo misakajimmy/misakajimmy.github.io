@@ -16,7 +16,7 @@ IDE 壳（Shell）
 VS Code / Theia / JetBrains / Cursor 之类的“外壳”； 负责：窗口布局、侧边栏/面板、命令系统、快捷键、主题； 提供：文件树、编辑器、终端、调试视图等 UI 插槽。 语言服务层（Language Services）
 各语言的 LSP / TS Server / 自研静态分析服务； 负责：补全、跳转、重命名、重构、诊断、格式化； 提供：抽象语法树、符号表、引用关系、类型信息。 AI 编排层（AI Orchestrator）
 核心职责是“接收 IDE 事件 → 构造上下文 → 选择模型与 prompt → 后处理结果”； 负责：任务识别（解释/补全/重构/问答）、上下文构建、prompt 模板、模型路由、结果 post-process。 模型与索引服务（Models & Indexes）
-模型：对话模型、代码模型、embedding 模型等； 索引：符号索引、结构索引（按函数/类）、向量索引（RAG）、文档索引； 负责：跨文件上下文检索、项目级问答、语义相似度搜索。 安全与观测层（Security & Observability）"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇先从整体视角看“企业级 AI IDE”应该长成什么样：有哪些层，各层分别负责什么，以及从 IDE 到模型之间到底流过哪些数据。
+模型：对话模型、代码模型、embedding 模型等； 索引：符号索引、结构索引（按函数/类）、向量索引（RAG）、文档索引； 负责：跨文件上下文检索、项目级问答、语义相似度搜索。 安全与观测层（Security & Observability）"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇先从整体视角看“企业级 AI IDE”应该长成什么样：有哪些层，各层分别负责什么，以及从 IDE 到模型之间到底流过哪些数据。
 分层架构：壳、语言服务、AI 编排、模型与索引 从一个 IDE 工程师的视角，可以把 AI IDE 拆成几层，各自有明确边界：
 IDE 壳（Shell）
 VS Code / Theia / JetBrains / Cursor 之类的“外壳”； 负责：窗口布局、侧边栏/面板、命令系统、快捷键、主题； 提供：文件树、编辑器、终端、调试视图等 UI 插槽。 语言服务层（Language Services）

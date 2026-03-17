@@ -28,7 +28,7 @@ MonacoInit 负责的主要任务 MonacoInit 的内部实现比较长，这里抽
 把“编辑器相关的 ContainerModule”全部 load 进来，并做好 Monaco 运行所需的环境配置。
 MonacoInit 负责的主要任务 MonacoInit 的内部实现比较长，这里抽象成几块核心职责：
 配置 Monaco 运行环境
-比如告诉 Monaco worker 该从哪里加载、在什么上下文里运行； 在浏览器 only 的场景里，需要显式指定 worker 路径或使用自定义 loader。 注册 Monaco 相关的前端模块到容器"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇从 Theia 的前端启动脚本入手，把 Monaco 是如何被“装配”进 Theia 壳里的流程梳理一遍。
+比如告诉 Monaco worker 该从哪里加载、在什么上下文里运行； 在浏览器 only 的场景里，需要显式指定 worker 路径或使用自定义 loader。 注册 Monaco 相关的前端模块到容器"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇从 Theia 的前端启动脚本入手，把 Monaco 是如何被“装配”进 Theia 壳里的流程梳理一遍。
 目标是弄清楚：哪一步开始真正和 Monaco 打交道、有哪些和编辑器相关的服务被绑定进容器、以及最终一个编辑器 Widget 是怎样落到 Lumino 布局里的。
 从入口里的 MonacoInit.init(container) 说起 在前端入口 index.js 中有这样一段代码：
 1const { MonacoInit } = require('@theia/monaco/lib/browser/monaco-init'); 2// ... 3MonacoInit.init(container); 这行调用可以看作 Theia 与 Monaco 的“握手”动作：

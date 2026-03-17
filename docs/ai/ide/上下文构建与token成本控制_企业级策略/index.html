@@ -31,7 +31,7 @@
 相关文档/注释摘要； 历史对话中和当前任务强相关的几轮对话； 配置信息、环境说明等。 构建上下文时，可以先按优先级填核心，再用剩余 Token 预算去填相关和附加部分。
 动态裁剪：按任务类型分配 Token 预算 不同任务的“信息胃口”不一样，没必要一刀切：
 代码补全（特别是单行补全）：
-主要依赖光标附近代码 + 当前函数/类； 项目级上下文可以非常克制，甚至可以只用 LSP 补全作为约束。 局部重写 / Inline Chat："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇聚焦一个在企业里必定会被问到的问题：上下文怎么构造、Token 怎么控？既要让模型“看得够多”，又不能让每次调用都烧钱烧到无法落地。
+主要依赖光标附近代码 + 当前函数/类； 项目级上下文可以非常克制，甚至可以只用 LSP 补全作为约束。 局部重写 / Inline Chat："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇聚焦一个在企业里必定会被问到的问题：上下文怎么构造、Token 怎么控？既要让模型“看得够多”，又不能让每次调用都烧钱烧到无法落地。
 为什么要把“Token 成本”当成一等公民？ 在个人项目里，很容易忽略一个事实：
 大模型调用的成本是和 Token 成线性关系的，而 IDE 又是一个高频交互场景：
 每一次补全、Inline Chat、多文件重构，背后都是一次或多次模型调用； 如果不控制上下文长度和调用频率，团队级使用时成本会迅速失控； 对延迟也有直接影响：prompt 越长，端到端等待时间越高。 从企业视角看，“如何做 Token 成本控制？”不只是账务问题，也是：

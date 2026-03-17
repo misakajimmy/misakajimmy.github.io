@@ -25,7 +25,7 @@ SSR（Server-Side Rendering）
 本质是「带缓存和过期时间的 SSG」； 页面第一次访问时按 SSG 的方式生成，后续在一定时间内复用，过期再增量刷新。 这三种方式可以混用：有的页面需要实时数据（SSR），有的完全可以静态化（SSG/ISR）。
 Hydration：不是再渲染一遍 Hydration 做的事不是「重新渲染 HTML」，而是：
 以现有的 HTML 结构为基础； 在客户端构建对应的 Fiber 树； 把事件监听器等挂上去； 让 React 控制这块 DOM 子树。 如果服务端输出的 HTML 和客户端首次渲染结果不一致，就会出现「水合不匹配」的警告，严重时还会导致布局跳动或事件行为异常。
-常见导致不一致的原因包括："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content="在浏览器里直接 createRoot 渲染是一种方式，把 HTML 先在服务端渲染好，再在客户端接管，是另一种。
+常见导致不一致的原因包括："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content="在浏览器里直接 createRoot 渲染是一种方式，把 HTML 先在服务端渲染好，再在客户端接管，是另一种。
 后者能带来更好的首屏和 SEO，但也多出一整套需要小心的细节。
 SSR / SSG / ISR 是什么区别 先把几个常混在一起的名词拆开：
 SSR（Server-Side Rendering）

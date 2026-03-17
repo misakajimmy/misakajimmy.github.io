@@ -28,7 +28,7 @@ navigator.sendBeacon：适合在页面卸载时发送（如离开页面的最后
 性能：使用 Performance API、PerformanceObserver； 错误：window.onerror、window.onunhandledrejection； 路由：在路由变化处统一记录 PV/路径变更。 一个简单的 SDK 架构：
 提供 track(eventName, payload) 方法供业务调用； 在初始化时挂全局监听器采集性能和错误； 内部有一层队列和批量上报逻辑。 上报策略：实时 vs 批量、可靠 vs 开销 数据采集到浏览器端之后，需要考虑如何上报到后端：
 上报方式
-navigator.sendBeacon：适合在页面卸载时发送（如离开页面的最后一批数据）； fetch/XHR：常规上报方式； 图片打点（new Image().src = url）：早期常用，兼容性好但表达能力有限。 上报策略'><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=' 越来越多的一面/二面会问“你们前端是怎么做监控和埋点的”，这题一方面考察工程经验，一方面看你对“前端在线上是怎么活着的”有没有思考。这一篇给一个最小可行的监控/埋点系统设计视角。
+navigator.sendBeacon：适合在页面卸载时发送（如离开页面的最后一批数据）； fetch/XHR：常规上报方式； 图片打点（new Image().src = url）：早期常用，兼容性好但表达能力有限。 上报策略'><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=' 越来越多的一面/二面会问“你们前端是怎么做监控和埋点的”，这题一方面考察工程经验，一方面看你对“前端在线上是怎么活着的”有没有思考。这一篇给一个最小可行的监控/埋点系统设计视角。
 我们要监控和埋点什么？ 一个常见的前端监控/埋点系统，至少要覆盖几类数据：
 性能：白屏时间、首屏渲染时间、TTFB、资源加载耗时等； 错误：运行时错误（onerror）、未处理的 Promise 拒绝（onunhandledrejection）、接口错误； 行为：PV/UV、页面停留时长、按钮/链接点击、关键路径（如下单流程）转化情况； 环境：浏览器/操作系统版本、设备信息、网络类型等。 一面回答时，先把这几类“我们关心的指标”讲清楚，再谈如何采集和上报。
 采集方式：埋点 SDK 与全局 Hook 采集层常见的两种方式：

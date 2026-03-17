@@ -22,7 +22,7 @@
 编辑器只负责把“光标位置 + 文件内容”等信息发给 Language Server； Language Server 基于语法树、类型系统、项目索引给出 CompletionItem 列表； 编辑器根据这些 CompletionItem 渲染 UI、插入代码。 这类补全的能力明显上了一个台阶：
 知道当前位置是“类型位置”“表达式位置”“参数位置”等； 知道有哪些符号在当前作用域可见； 知道类型信息，可以只给出类型匹配的候选； 可以带上文档、参数信息、重载签名等。 它的上限也很清楚：
 大多数建议是“已有符号”的组合，很少生成新的结构； 跨文件时更多依赖静态索引，对“隐式约定”“业务语义”毫无感觉； 对于动态语言（类型信息弱）时显得有点吃力。 大模型补全：从“列出选项”变成“生成一段逻辑” 大模型进来后，补全这件事多了一种完全不同的风格：
-输入不再只是“光标前的一点点上下文”，而是整段代码片段甚至多个文件； 输出不再只是一个标识符，而是一整行甚至一整段逻辑； 模型会模仿当前项目的风格：变量命名、错误处理习惯、日志格式等。 一个典型的大模型补全请求会包含："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇单独聊补全：IDE 里“按点一下点号出来一堆建议”这件事，底层到底走过哪些演进阶段，以及现在大模型补全是怎么和 LSP 一起工作的。
+输入不再只是“光标前的一点点上下文”，而是整段代码片段甚至多个文件； 输出不再只是一个标识符，而是一整行甚至一整段逻辑； 模型会模仿当前项目的风格：变量命名、错误处理习惯、日志格式等。 一个典型的大模型补全请求会包含："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇单独聊补全：IDE 里“按点一下点号出来一堆建议”这件事，底层到底走过哪些演进阶段，以及现在大模型补全是怎么和 LSP 一起工作的。
 早期补全：符号表 + 模板的年代 在 LSP 出现之前，很多编辑器的补全更多是“高级版的字符串匹配”：
 扫一遍当前文件/项目里的标识符，做一个简单的索引； 当前光标前的前缀和这些标识符做匹配； 按字典序/出现频率排序，列出候选。 再加上一些：
 固定模板（比如 for、if、try/catch 的代码片段）； 关键词补全（语言关键字、常见内置类型）。 这种补全的特点是：

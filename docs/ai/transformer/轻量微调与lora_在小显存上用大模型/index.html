@@ -28,7 +28,7 @@
 用预训练 Encoder 编码句子； 在上面接一个两层 MLP 做分类，只更新 MLP 的参数。 好处：
 显存和训练成本都很低； 实现简单，不需要改动主干结构。 不足：
 对某些和预训练分布差别较大的任务，可能“不够解锁”，表现有限； 主干参数完全冻结，适配能力靠顶部几层，有时会感觉“瓶颈明显”。 LoRA 的直觉：只学“一个低秩残差” LoRA（Low-Rank Adaptation）的关键想法是：
-不直接改原始权重矩阵 $W \in \mathbb{R}^{d_{\text{out}} \times d_{\text{in}}}$； 而是在它旁边加一个低秩矩阵 $BA$，只训练 $A, B$： $$ W' = W + BA $$其中："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇聚焦在“模型已经很大了，如何在有限资源下适配具体任务”：从最朴素的全参微调，到 LoRA、Prefix-Tuning 这类轻量方案的直觉和工程用法。
+不直接改原始权重矩阵 $W \in \mathbb{R}^{d_{\text{out}} \times d_{\text{in}}}$； 而是在它旁边加一个低秩矩阵 $BA$，只训练 $A, B$： $$ W' = W + BA $$其中："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇聚焦在“模型已经很大了，如何在有限资源下适配具体任务”：从最朴素的全参微调，到 LoRA、Prefix-Tuning 这类轻量方案的直觉和工程用法。
 全参微调：效果最好，但最昂贵 最直接的做法是：把预训练 Transformer 当普通网络，所有参数都参与更新。
 好处：
 表达能力完全打开，下游任务如果数据足够多，效果往往最好； 理论上没有“适配瓶颈”，能充分利用预训练表示。 代价：

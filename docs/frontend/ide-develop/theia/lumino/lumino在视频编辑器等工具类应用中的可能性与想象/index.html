@@ -19,7 +19,7 @@ DockPanel / SplitPanel / TabBar：负责复杂布局和可停靠窗口。 signal
 都是“界面复杂 + 布局多变 + 交互重 + 状态多”的工具型应用。
 而 Lumino 恰好就是为这类场景准备的：
 DockPanel / SplitPanel / TabBar：负责复杂布局和可停靠窗口。 signaling / command / virtualdom：负责状态联动和界面渲染。 dragdrop / keyboard / FocusTracker：负责拖拽、快捷键、焦点管理。 所以从“气质”上，Lumino 和视频编辑器这类产品是很对味的。
-用 Lumino 搭一个视频编辑器大致会怎么分层？ 如果用前面几篇写过的模块来想象，可以粗略划成几层："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 前面写了很多 Lumino 在 IDE / JupyterLab 里的实际用法，这篇稍微发散一点，
+用 Lumino 搭一个视频编辑器大致会怎么分层？ 如果用前面几篇写过的模块来想象，可以粗略划成几层："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 前面写了很多 Lumino 在 IDE / JupyterLab 里的实际用法，这篇稍微发散一点，
 聊聊如果用 Lumino 去做“视频编辑器”这类重工具型应用，会长成什么样，以及哪些能力是天然对口的。
 为什么一提视频编辑器，就容易想到 Lumino 这种框架？ 先拆一下典型“视频编辑器”的几个 UI 特征（不管是 PR、DaVinci 还是浏览器里的在线剪辑）：
 多区域布局：时间线、媒体资源库、预览窗口、属性面板、效果面板、调色窗口……一大堆 Panel。 强交互拖拽：拖媒体到时间线、拖动片段边界、拖调色曲线、拖调音量关键帧。 大量可配置视图：不同工作区（剪辑、调色、音频）下，面板组合和布局都不一样。 长时间运行 + 复杂状态：项目可能开着一整天不停修改，Undo/Redo 状态很重。 这些需求和 IDE / 数据分析工具的共性是很明显的：

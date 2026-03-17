@@ -28,7 +28,7 @@
 把“执行一次请求 + 必要等待”的逻辑封装成一个递归或循环； 用一个计数器记录已经尝试的次数，超过上限就直接 reject； 可以根据错误类型决定是否继续重试。 轮询：定期请求直到满足条件或超时 轮询题通常描述为：
 每隔一段时间请求一次接口，直到返回某个状态或达到最大尝试次数。
 高层思路：
-使用 setTimeout 或 setInterval 控制节奏； 在回调中判断是否满足条件： 满足 → resolve，停止轮询； 不满足 → 如果未达最大次数，则安排下一次调用；否则 reject/给出超时提示。 这类题重点是控制逻辑清晰，而不是用某个“巧妙 API”一行写完。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 在“异步/网络”这一块，一面常见的进阶题集中在：并发数控制、请求重试策略、轮询等。这一篇挑几道典型题，重点讲清楚思路而不是堆代码。
+使用 setTimeout 或 setInterval 控制节奏； 在回调中判断是否满足条件： 满足 → resolve，停止轮询； 不满足 → 如果未达最大次数，则安排下一次调用；否则 reject/给出超时提示。 这类题重点是控制逻辑清晰，而不是用某个“巧妙 API”一行写完。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 在“异步/网络”这一块，一面常见的进阶题集中在：并发数控制、请求重试策略、轮询等。这一篇挑几道典型题，重点讲清楚思路而不是堆代码。
 并发限制：同一时间最多跑 N 个请求 这类题的典型描述是：
 有一组异步任务（通常是返回 Promise 的函数），要求同一时间最多并发执行 N 个，全部完成后返回结果。
 高层思路：

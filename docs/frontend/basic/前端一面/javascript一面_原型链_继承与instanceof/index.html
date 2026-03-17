@@ -19,7 +19,7 @@ instanceof 的原理：看右边 prototype 在不在左边的原型链上 instan
 当访问 foo.someProp 时，引擎的查找路径是：
 看 foo 自身有没有 someProp； 没有就去 foo.__proto__（也就是 Foo.prototype）上找； 还没有就继续沿着 __proto__ 往上找，直到 Object.prototype 或 null。 理解了这条查找路径，后面很多原型链相关的题就自然了。
 instanceof 的原理：看右边 prototype 在不在左边的原型链上 instanceof 是一面常客，很多题都围绕它做文章。
-它的语义可以简化成一句话："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 原型和继承几乎是每一份前端面试题里都会出现的老面孔，这一篇尽量用“画图 + 几个典型问题”的方式，把原型链相关的考点串起来。
+它的语义可以简化成一句话："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 原型和继承几乎是每一份前端面试题里都会出现的老面孔，这一篇尽量用“画图 + 几个典型问题”的方式，把原型链相关的考点串起来。
 原型对象与原型链：先把那几根箭头理清楚 在 JS 里，几乎每个对象背后都有一根“指向它父辈”的指针：
 对象的内部属性 [[Prototype]]（大多数环境下可以通过 __proto__ 访问）指向它的原型对象； 构造函数的 prototype 属性指向“实例的原型对象”； 原型对象本身也是对象，也有自己的 [[Prototype]]，一直往上，最后指向 Object.prototype，再往上就是 null。 可以用一个简化的关系图描述：
 1function Foo() {} 2 3const foo = new Foo(); 4 5foo.__proto__ === Foo.prototype 6Foo.prototype.__proto__ === Object.prototype 7Object.prototype.__proto__ === null 这条一层层向上的链，就是所谓的“原型链”。

@@ -22,7 +22,7 @@ Monaco 再根据 token 类型映射到具体样式（由主题负责）。"><met
 用 Monarch 定义语法高亮规则 Monaco 自带一个轻量的词法高亮引擎 Monarch，可以用类似状态机 + 正则的方式描述高亮规则：
 1monaco.languages.setMonarchTokensProvider('myLang', { 2 defaultToken: 'invalid', 3 4 tokenizer: { 5 root: [ 6 [/[a-z_$][\w$]*/, 'identifier'], 7 [/\d+/, 'number'], 8 [/\/\/.*/, 'comment'], 9 [/&#34;.*?&#34;/, 'string'], 10 [/[{}()[\]]/, '@brackets'], 11 [/[;,.]/, 'delimiter'], 12 ], 13 }, 14}); 核心是 tokenizer 字段，它定义了不同状态下的匹配规则：
 每一行 [pattern, token] 表示“遇到某个正则，就打上某种 token 类型”，
-Monaco 再根据 token 类型映射到具体样式（由主题负责）。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇把 Monaco 里的“语言体系”和语法高亮机制梳理一下，再看 Theia 是怎么在这套机制之上做语言注册和适配。
+Monaco 再根据 token 类型映射到具体样式（由主题负责）。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇把 Monaco 里的“语言体系”和语法高亮机制梳理一下，再看 Theia 是怎么在这套机制之上做语言注册和适配。
 注册一种语言的基本步骤 在 Monaco 里，语言相关功能集中在 monaco.languages 命名空间中。
 最基础的是先注册语言 ID：
 1monaco.languages.register({ 2 id: 'myLang', 3 extensions: ['.mlg'], 4 aliases: ['MyLang'], 5}); 这一步只是告诉 Monaco：“有一个叫 myLang 的语言，后续高亮/补全等都可以和它关联”，还没有真正的语法规则。

@@ -28,7 +28,7 @@ onDidChangeModelContent（内容变化）； onDidChangeCursorPosition / onDidCh
 onDidChangeModelContent（内容变化）； onDidChangeCursorPosition / onDidChangeCursorSelection； onDidScrollChange 等。 这些事件在频繁编辑时会被高频触发，如果不加限制地在回调里做重逻辑，很容易造成卡顿。
 比较稳妥的做法：
 在回调内做最小工作，尽量只做“标记”或简单状态更新； 对需要后续处理的逻辑使用防抖/节流，比如 50–200ms 粒度； 避免在这些回调里直接触发大量装饰器更新或跨组件通信。 在 Theia 这种 IDE 中，通常会：
-把 LSP 同步、Markers 更新等重逻辑放到专门的服务里，以批处理方式处理； 在编辑器层只负责收集变更，稍后由后台或服务层统一计算和更新。 装饰器数量：成千上万的标记也要有节制 装饰器是 Monaco 的一大杀手锏，但数量和更新频率若失控，也会带来性能问题。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇集中从性能角度看 Monaco：渲染与布局、事件风暴、装饰器数量、多模型与资源管理，顺带结合 Theia 这种 IDE 场景谈一些实践经验。
+把 LSP 同步、Markers 更新等重逻辑放到专门的服务里，以批处理方式处理； 在编辑器层只负责收集变更，稍后由后台或服务层统一计算和更新。 装饰器数量：成千上万的标记也要有节制 装饰器是 Monaco 的一大杀手锏，但数量和更新频率若失控，也会带来性能问题。"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇集中从性能角度看 Monaco：渲染与布局、事件风暴、装饰器数量、多模型与资源管理，顺带结合 Theia 这种 IDE 场景谈一些实践经验。
 渲染与布局：避免不必要的重排 Monaco 编辑器本身已经对渲染做了不少优化（虚拟化行、延迟高亮、只重绘视口等），
 但在使用层面仍有几件事需要注意：
 尽量避免在编辑器容器 DOM 上频繁调整尺寸、display 状态； 当容器尺寸变化时，调用 editor.layout() 而不是依赖浏览器自动处理； 如果需要嵌入复杂布局（比如在 Widget 内再嵌多层容器），要确保编辑器所在的容器尺寸变化是可预期的。 在 Theia 里，这部分工作主要由 Lumino 布局 + Editor Widget 封装来处理：

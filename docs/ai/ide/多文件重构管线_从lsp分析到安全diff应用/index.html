@@ -22,7 +22,7 @@ LSP 能直接回答的：
 第一步：用 LSP 和索引找出“影响面” 多文件重构的第一步，是从一个起点符号出发，找出所有受影响的地方。
 这里 LSP 是天然的“前锋”：
 LSP 能直接回答的：
-符号定义位置（go to definition）； 所有引用位置（find references）； 实现/重写关系（implementations / type hierarchy）； 局部/全局 rename 的影响范围。 索引服务可以补充的："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇专门讲“多文件改写/重构”这一条重型管线：从一个起点符号出发，如何借助 LSP 和索引找出影响面，再让模型生成跨文件 patch，并在 IDE 里安全地落地。
+符号定义位置（go to definition）； 所有引用位置（find references）； 实现/重写关系（implementations / type hierarchy）； 局部/全局 rename 的影响范围。 索引服务可以补充的："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇专门讲“多文件改写/重构”这一条重型管线：从一个起点符号出发，如何借助 LSP 和索引找出影响面，再让模型生成跨文件 patch，并在 IDE 里安全地落地。
 场景定义：什么算“多文件重构”？ 在 IDE 里，典型的多文件重构需求包括：
 把一个接口改成 async 风格，并更新所有调用点； 给某个 DTO 增加字段，串起所有读写逻辑； 把一层 API 的错误处理统一改成某种模式； 重命名一个公共方法/类，并保持调用方一致。 这类需求的几个共性：
 起点通常是某个“符号”（函数、方法、类、接口、类型别名等）； 影响范围跨越多个文件/模块，靠肉眼全局搜索既费力又容易漏； 修改本身是成批的，必须以“可 review 的 patch 集合”的形式存在。 因此，多文件重构需要一条和 Inline Chat 不同的管线：

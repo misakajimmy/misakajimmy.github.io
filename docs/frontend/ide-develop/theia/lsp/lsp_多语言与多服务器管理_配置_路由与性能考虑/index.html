@@ -13,7 +13,7 @@
 工作区语言（例如 TypeScript/Java/Go 等）； 配置/标记语言（JSON/YAML/TOML 等）； 脚本/模板语言（Shell、SQL、各种 DSL）。 在 LSP 视角下，这意味着：
 针对每类语言，需要有一份 Language Server 配置（有的 server 支持多语言，有的只支持一门）； 客户端需要知道“一个文档应该交给哪个 Language Server 处理”，通常依据语言 ID 或文件扩展名。 在 Theia 中，这一层往往通过配置文件/扩展中的元数据来描述，例如：
 为 *.ts / *.tsx 绑定 TypeScript Server； 为 *.json 绑定 JSON Server； 为 *.go 绑定 gopls 等。 语言到服务器的映射与路由 在多语言场景里，客户端和后端都需要一张“大致”的映射表：
-语言 ID → 语言客户端贡献（前端） 语言 ID / 文档 URI → 语言服务器贡献（后端） 前端路由大致遵循："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇整理在多语言、多 Language Server 并存时，编辑器端和 Theia 需要考虑的几个问题：如何配置多语言支持、如何按文档路由到正确的服务器、以及在资源占用和响应性能上的权衡。
+语言 ID → 语言客户端贡献（前端） 语言 ID / 文档 URI → 语言服务器贡献（后端） 前端路由大致遵循："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇整理在多语言、多 Language Server 并存时，编辑器端和 Theia 需要考虑的几个问题：如何配置多语言支持、如何按文档路由到正确的服务器、以及在资源占用和响应性能上的权衡。
 多语言支持的基本配置思路 在一个实际项目中，很少只有一门语言。典型 IDE 往往同时支持：
 工作区语言（例如 TypeScript/Java/Go 等）； 配置/标记语言（JSON/YAML/TOML 等）； 脚本/模板语言（Shell、SQL、各种 DSL）。 在 LSP 视角下，这意味着：
 针对每类语言，需要有一份 Language Server 配置（有的 server 支持多语言，有的只支持一门）； 客户端需要知道“一个文档应该交给哪个 Language Server 处理”，通常依据语言 ID 或文件扩展名。 在 Theia 中，这一层往往通过配置文件/扩展中的元数据来描述，例如：

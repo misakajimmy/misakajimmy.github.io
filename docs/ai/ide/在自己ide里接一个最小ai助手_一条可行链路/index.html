@@ -22,7 +22,7 @@
 第一步：在 IDE 里塞一个“对话入口” 无论你用的是 VS Code、Theia 还是其它 UI 框架，第一步通常是：
 注册一个命令，比如 “Open AI Assistant”； 在侧边栏或面板里放一个简单的 UI： 一个多行输入框； 一个“发送”按钮； 一个展示历史消息的区域。 初版可以只做两类请求：
 纯自然语言问题：当成普通聊天/问答； 选中代码 + 问题：侧边栏自动带上当前 selection。 这一步不需要任何模型相关复杂逻辑，只需要：
-能拿到当前选中代码（或者光标所在行附近若干行）； 能把这些内容和用户问题组装成一个 JSON 请求发到后端。 第二步：在后端做一个简单的 LLM 代理 后端可以是一个很小的服务，负责："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 这一篇试着把“给自己的 IDE/编辑器接一个 AI 助手”这件事，拆成几步可以落地的工程工作，从最小可行版本开始，一步步往上叠功能。
+能拿到当前选中代码（或者光标所在行附近若干行）； 能把这些内容和用户问题组装成一个 JSON 请求发到后端。 第二步：在后端做一个简单的 LLM 代理 后端可以是一个很小的服务，负责："><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 这一篇试着把“给自己的 IDE/编辑器接一个 AI 助手”这件事，拆成几步可以落地的工程工作，从最小可行版本开始，一步步往上叠功能。
 先定义“最小可用”的目标 如果一上来就想做“像 Cursor/Claude 那么全能”的助手，几乎一定会陷入无休止的工程泥潭。
 一个更现实的起点是先定义一个 MVP（最小可用版本），比如：
 能在侧边栏里选中一段代码，请求“解释这段代码在干什么”； 能输入一句自然语言指令，让助手在当前函数附近打一段草稿代码； 不直接改文件，只以建议形式展示。 这样一来，第一版只需要解决：

@@ -19,7 +19,7 @@ ES Module（ESM）
 使用 require / module.exports； 动态特性更强（require 可以在条件里调用），但不利于静态分析； Node 传统模块系统。 一面典型问法：
 “ESM 和 CommonJS 有什么区别？” “为什么 Tree-Shaking 更适合用在 ESM 上？” 参考答案要点：
 ESM 是静态的，编译阶段就能分析出哪些导出被使用； CommonJS 的导出是一个对象，属性可以在运行时动态增删，难以安全删除未用代码； 实际打包时，通常推荐业务代码用 ESM，第三方库兼容两种模块格式。 打包工具在做什么？（以 Webpack/Vite 为例） 打包工具（Webpack、Rollup、Vite 内部的 Rollup 等）主要负责几件事：
-解析模块依赖图（从入口文件出发，追踪 import/require）； 把多种资源类型（JS/TS/CSS/图片等）转成浏览器可执行的 bundle； 支持代码分割（Code Splitting）、按需加载等优化； 在生产模式下做压缩、Tree-Shaking 等。 一面中不会要求你精通某个工具的所有配置，更多是看你是否理解：'><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=' 工程化相关的一面题，常见会问：ESM 和 CommonJS 有什么区别？打包工具在做什么？Tree-Shaking 的前提条件是什么？这一篇尝试用一条线把这些高频问题串起来。
+解析模块依赖图（从入口文件出发，追踪 import/require）； 把多种资源类型（JS/TS/CSS/图片等）转成浏览器可执行的 bundle； 支持代码分割（Code Splitting）、按需加载等优化； 在生产模式下做压缩、Tree-Shaking 等。 一面中不会要求你精通某个工具的所有配置，更多是看你是否理解：'><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=' 工程化相关的一面题，常见会问：ESM 和 CommonJS 有什么区别？打包工具在做什么？Tree-Shaking 的前提条件是什么？这一篇尝试用一条线把这些高频问题串起来。
 模块化：ESM vs CommonJS 在浏览器/Node 里，常见的两套模块规范：
 ES Module（ESM）
 使用 import / export 语法； 静态结构（编译时即可分析依赖关系），有助于 Tree-Shaking； 默认是异步加载（浏览器原生支持 <script type="module">）。 CommonJS（CJS）

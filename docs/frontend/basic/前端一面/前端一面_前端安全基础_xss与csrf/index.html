@@ -25,7 +25,7 @@ XSS（跨站脚本攻击）：把恶意脚本“塞进你的页面” XSS 的核
 XSS 的常见防御手段 输出转义
 在把用户输入渲染到 HTML 时进行适当的转义（例如 < 转成 &amp;lt;）； 针对不同上下文（HTML、属性、URL、JS 字面量）使用合适的转义规则。 尽量使用安全的 DOM API
 能用 textContent/innerText 的地方不要用 innerHTML； 如必须插入 HTML 片段，也要对来源做白名单过滤。 内容安全策略（CSP）
-通过 HTTP 头 Content-Security-Policy 限制脚本来源； 比如禁止行内脚本，只允许加载指定域名的 JS。 在一面回答时，不需要穷举所有类型，重点是能说明：“XSS 是因为把不可信输入当成 HTML/JS 执行了，我们要做的是合理转义、限制脚本来源、避免随意拼 HTML。”"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.bdd8df6edce3613c954bf21e1b87ab869b77530c033cf1c3c28d28674c85438fb552ea578ee2b64238b1da24a4006d0c772e35b060662a472fc18779b9f7ac24.css integrity="sha512-vdjfbtzjYTyVS/IeG4erhpt3UwwDPPHDwo0oZ0yFQ4+1UupXjuK2Qjix2iSkAG0Mdy41sGBmKkcvwYd5ufesJA=="><meta name=description content=" 很多团队在一面/二面都会问一两个前端安全相关的问题，最常见的就是 XSS 和 CSRF。这一篇重点放在“能讲清楚攻击原理 + 基本防御思路”，再补两道常见题的参考答案。
+通过 HTTP 头 Content-Security-Policy 限制脚本来源； 比如禁止行内脚本，只允许加载指定域名的 JS。 在一面回答时，不需要穷举所有类型，重点是能说明：“XSS 是因为把不可信输入当成 HTML/JS 执行了，我们要做的是合理转义、限制脚本来源、避免随意拼 HTML。”"><link rel=stylesheet href=https://misakaJimmy.github.io/css/styles.5bc155a987ec05d8cc4751c0dce587546d90e029e65d543d9490643d41b95527477268a725afef7256240232c2a44f04e0bb10aa12330861278c953c3b86827c.css integrity="sha512-W8FVqYfsBdjMR1HA3OWHVG2Q4CnmXVQ9lJBkPUG5VSdHcminJa/vclYkAjLCpE8E4LsQqhIzCGEnjJU8O4aCfA=="><meta name=description content=" 很多团队在一面/二面都会问一两个前端安全相关的问题，最常见的就是 XSS 和 CSRF。这一篇重点放在“能讲清楚攻击原理 + 基本防御思路”，再补两道常见题的参考答案。
 XSS（跨站脚本攻击）：把恶意脚本“塞进你的页面” XSS 的核心是：攻击者设法让自己的脚本在受害者的浏览器里执行，一般有几种常见形式：
 反射型 XSS
 恶意脚本藏在 URL 参数里，服务器拿参数原样拼进 HTML 返回； 受害者点击特制链接，浏览器解析 HTML 时执行了这段脚本。 存储型 XSS
