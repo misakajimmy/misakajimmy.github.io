@@ -1,14 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lifelong Learning on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/</link><description>Recent content in Lifelong Learning on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/linux/docker/install-docker-compose-v2/</guid><description>&lt;h1 id="install-docker-compose-v2" class=link_owner&gt;
- install docker-compose v2
- &lt;a href="#install-docker-compose-v2" class="link icon"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>索引 on MisakaJimmy Blog</title><link>https://misakaJimmy.github.io/docs/</link><description>Recent content in 索引 on MisakaJimmy Blog</description><generator>Hugo</generator><language>en</language><atom:link href="https://misakaJimmy.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Lifelong Learning</title><link>https://misakaJimmy.github.io/docs/lifelong_learning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/lifelong_learning/</guid><description>&lt;h2 id="什么是终身学习" class=link_owner&gt;
+ 什么是终身学习？
+ &lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0" class="link icon"&gt;
  &lt;svg&gt;
  &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
  &lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h1&gt;
-&lt;p&gt;官方 &lt;a href="https://github.com/docker/compose-cli"&gt;github&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;wget https://github.com/docker/compose-cli/releases/download/v2.0.0-beta.6/docker-compose-linux-amd64
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;sudo chmod a+x ./docker-compose-linux-amd64
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;mkdir ~/.docker/cli-plugins
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;sudo mv ./docker-compose-linux-amd64 ~/.docker/cli-plugins/docker-compose
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>
+&lt;/h2&gt;
+
+&lt;div class="tip"&gt;
+ 终身学习是一种以个人发展为重点的自发教育形式。虽然终身学习没有标准化的定义，但它通常是指发生在正规教育机构之外的学习，例如学校、大学或企业培训。
+&lt;/div&gt;
+
+&lt;p&gt;然而，终身学习并不一定限于非正式学习。最好将其描述为以实现个人成就为目的的自愿。实现这一目标的手段可能会导致非正式或正式的教育。&lt;/p&gt;
+&lt;h2 id="终身学习的重要性" class=link_owner&gt;
+ 终身学习的重要性
+ &lt;a href="#%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;无论是追求个人兴趣和激情，还是追求职业抱负，终身学习都可以帮助我们实现个人成就感和满足感。&lt;/p&gt;
+&lt;p&gt;它承认人类有探索、学习和成长的自然动力，并鼓励我们通过关注激发我们灵感的想法和目标来提高我们自己的生活质量和自我价值感。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://misakaJimmy.github.io/images/life-long-learning.png" alt="LifeLong-Learning"&gt;&lt;/p&gt;
+&lt;h3 id="我们都是终身学习者" class=link_owner&gt;
+ 我们都是终身学习者
+ &lt;a href="#%e6%88%91%e4%bb%ac%e9%83%bd%e6%98%af%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0%e8%80%85" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;但是个人成就感是什么意思呢？&lt;/p&gt;
+&lt;p&gt;现实情况是，我们大多数人在正规学校教育和工作之外都有目标或兴趣。这就是作为人类的一部分含义：我们有天生的好奇心，我们是天生的学习者。我们的发展和成长得益于我们的学习能力。&lt;/p&gt;
+&lt;p&gt;终身学习认识到并非我们所有的学习都来自课堂。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例如，在童年时期，我们学习说话或骑自行车。&lt;/li&gt;
+&lt;li&gt;作为成年人，我们学习如何使用智能手机或学习如何烹饪新菜。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些是我们每天通过社交、反复试验或自发学习进行的日常终身学习的例子。&lt;/p&gt;
+&lt;p&gt;个人成就和发展是指引导我们学习新事物的自然兴趣、好奇心和动机。我们为自己学习，而不是为别人学习。&lt;/p&gt;
+&lt;h3 id="终身学习的关键清单" class=link_owner&gt;
+ 终身学习的关键清单
+ &lt;a href="#%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%85%b3%e9%94%ae%e6%b8%85%e5%8d%95" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;自主性&lt;/li&gt;
+&lt;li&gt;自我激励或自我发起&lt;/li&gt;
+&lt;li&gt;并不总是需要成本&lt;/li&gt;
+&lt;li&gt;通常是非正式的&lt;/li&gt;
+&lt;li&gt;自学或寻求指导&lt;/li&gt;
+&lt;li&gt;动机是出于个人兴趣或个人发展&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="终身学习的例子" class=link_owner&gt;
+ 终身学习的例子
+ &lt;a href="#%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0%e7%9a%84%e4%be%8b%e5%ad%90" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;以下是您可以参与的一些终身学习计划类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;培养新技能&lt;/strong&gt;（例如缝纫、烹饪、编程、公开演讲等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自学学习&lt;/strong&gt;（例如学习一门新语言、研究感兴趣的话题、订阅播客等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习一项新的运动或活动&lt;/strong&gt;（例如参加武术、学习滑雪、学习锻炼等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习使用新技术&lt;/strong&gt;（智能设备、新软件应用程序等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取新知识&lt;/strong&gt;（通过在线教育或课堂课程学习自学课程）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="终身学习的好处" class=link_owner&gt;
+ 终身学习的好处
+ &lt;a href="#%e7%bb%88%e8%ba%ab%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%a5%bd%e5%a4%84" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;将终身学习融入您的生活可以带来许多长期利益，包括：&lt;/p&gt;
+&lt;h4 id="1-新的自我激励" class=link_owner&gt;
+ 1. 新的自我激励
+ &lt;a href="#1-%e6%96%b0%e7%9a%84%e8%87%aa%e6%88%91%e6%bf%80%e5%8a%b1" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;有时，我们在做某事时会陷入常规，仅仅是因为我们必须这样做，例如去上班或打扫房子。&lt;/p&gt;
+&lt;p&gt;弄清楚是什么激发了你的灵感，让你重新回到驾驶座上，并提醒你在生活中你真的可以做你想做的事情。&lt;/p&gt;</description></item></channel></rss>
