@@ -861,4 +861,86 @@
 &lt;li&gt;Electron 主进程启动时加载这个 dev server 的 URL 而不是打包后的文件；&lt;/li&gt;
 &lt;li&gt;主进程自身通过 &lt;code&gt;ts-node&lt;/code&gt; 或 &lt;code&gt;nodemon&lt;/code&gt; 等工具实现热重启。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;大致流程可以是：&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;大致流程可以是：&lt;/p&gt;</description></item><item><title>Electron 性能优化实战：CPU、内存与渲染路径的系统梳理</title><link>https://misakaJimmy.github.io/docs/frontend/electron/electron_%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98_cpu_%E5%86%85%E5%AD%98%E4%B8%8E%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%A2%B3%E7%90%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misakaJimmy.github.io/docs/frontend/electron/electron_%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98_cpu_%E5%86%85%E5%AD%98%E4%B8%8E%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%A2%B3%E7%90%86/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Electron 被诟病最多的点之一就是「占内存、吃 CPU」，但很多瓶颈并不在 Electron 本身，而在应用如何用它。&lt;br&gt;
+这一篇从工程视角，把性能问题拆成三块：&lt;strong&gt;CPU 使用、内存占用和渲染路径&lt;/strong&gt;，分别讨论常见成因、诊断方法以及对应的优化策略。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="1-先区分是谁在变慢" class=link_owner&gt;
+ 1. 先区分：是谁在「变慢」？
+ &lt;a href="#1-%e5%85%88%e5%8c%ba%e5%88%86%e6%98%af%e8%b0%81%e5%9c%a8%e5%8f%98%e6%85%a2" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;在排查 Electron 性能问题前，先把几个维度分开：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;首屏加载时间&lt;/strong&gt;：从启动应用到主窗口「可操作」之间的时间；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互时卡顿&lt;/strong&gt;：拖动、滚动、输入、切换视图时的延迟与掉帧；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长时间运行后的「越用越重」&lt;/strong&gt;：内存持续上涨、CPU 长时间占用不释放。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每种表现背后的原因可能不同：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首屏更多和打包体积、初始化逻辑有关；&lt;/li&gt;
+&lt;li&gt;交互卡顿往往是渲染线程负担过重或频繁 layout/reflow；&lt;/li&gt;
+&lt;li&gt;长时间运行的膨胀，多半和内存泄漏、缓存未清理、后台任务不退出有关。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在实际优化时，最好先用简单的问题框定范围：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是「一打开就慢」，还是「用久了才慢」？&lt;/li&gt;
+&lt;li&gt;是特定操作卡，还是整体 UI 都很迟钝？&lt;/li&gt;
+&lt;li&gt;是只在多窗口/大数据场景才复现，还是任何时候都明显？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-cpu-使用避免在错误的地方做太多重活" class=link_owner&gt;
+ 2. CPU 使用：避免在错误的地方做太多「重活」
+ &lt;a href="#2-cpu-%e4%bd%bf%e7%94%a8%e9%81%bf%e5%85%8d%e5%9c%a8%e9%94%99%e8%af%af%e7%9a%84%e5%9c%b0%e6%96%b9%e5%81%9a%e5%a4%aa%e5%a4%9a%e9%87%8d%e6%b4%bb" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="21-重计算不应直接放在渲染线程" class=link_owner&gt;
+ 2.1 重计算不应直接放在渲染线程
+ &lt;a href="#21-%e9%87%8d%e8%ae%a1%e7%ae%97%e4%b8%8d%e5%ba%94%e7%9b%b4%e6%8e%a5%e6%94%be%e5%9c%a8%e6%b8%b2%e6%9f%93%e7%ba%bf%e7%a8%8b" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Electron 的渲染进程本质是 Chromium 的一个 tab，主要负责：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算布局与绘制；&lt;/li&gt;
+&lt;li&gt;处理用户输入事件；&lt;/li&gt;
+&lt;li&gt;执行前端框架逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果在渲染进程的主线程上执行大量同步工作（例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;复杂的数据处理和转换；&lt;/li&gt;
+&lt;li&gt;大量 JSON 解析/序列化；&lt;/li&gt;
+&lt;li&gt;长时间的大循环或遍历；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;会直接阻塞：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;帧渲染（导致卡顿、掉帧）；&lt;/li&gt;
+&lt;li&gt;用户输入响应（输入和点击延迟明显）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更合适的做法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把重计算移到：
+&lt;ul&gt;
+&lt;li&gt;后端服务；&lt;/li&gt;
+&lt;li&gt;主进程或专用 Node 子进程；&lt;/li&gt;
+&lt;li&gt;渲染进程中的 Web Worker；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;渲染进程接收处理结果后只做必要的状态更新与渲染。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="22-高频事件要做减频" class=link_owner&gt;
+ 2.2 高频事件要做「减频」
+ &lt;a href="#22-%e9%ab%98%e9%a2%91%e4%ba%8b%e4%bb%b6%e8%a6%81%e5%81%9a%e5%87%8f%e9%a2%91" class="link icon"&gt;
+ &lt;svg&gt;
+ &lt;use xlink:href="#anchor-link"&gt;&lt;/use&gt;
+ &lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;在滚动、窗口尺寸变化、鼠标移动、键盘输入等高频事件中，如果每次触发都去：&lt;/p&gt;</description></item></channel></rss>
